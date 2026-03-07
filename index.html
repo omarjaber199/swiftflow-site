@@ -128,7 +128,6 @@
       border-color:var(--line);
     }
 
-    /* ticker */
     .ticker-wrap{
       overflow:hidden;
       border-top:1px solid var(--line);
@@ -141,8 +140,12 @@
     .ticker-marquee{
       display:flex;
       width:max-content;
-      animation:tickerMove 55s linear infinite;
+      animation:tickerMove 65s linear infinite;
       will-change:transform;
+    }
+
+    .ticker-wrap:hover .ticker-marquee{
+      animation-play-state:paused;
     }
 
     .ticker-track{
@@ -448,8 +451,8 @@
 
     .results-grid{
       display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:22px;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
     }
 
     .panel,
@@ -461,18 +464,10 @@
       box-shadow:var(--shadow);
     }
 
-    .tv-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:16px;
-    }
-
     .tv-badge{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:8px;
       padding:10px 14px;
       border-radius:999px;
@@ -481,76 +476,34 @@
       color:#9cc2ff;
       font-size:13px;
       font-weight:800;
-    }
-
-    .tv-title{
-      font-size:22px;
-      font-weight:900;
-    }
-
-    .performance{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-bottom:18px;
+      margin-bottom:14px;
     }
 
     .performance-card{
       background:#0b1320;
       border:1px solid var(--line);
       border-radius:18px;
-      padding:18px;
+      padding:20px;
       text-align:center;
+      height:100%;
     }
 
     .performance-card .small{
       color:var(--muted);
-      font-size:13px;
+      font-size:14px;
       margin-bottom:10px;
     }
 
     .performance-card .big{
       font-size:30px;
       font-weight:900;
+      margin-bottom:8px;
     }
 
-    .trade-list{
-      display:grid;
-      gap:10px;
-    }
-
-    .trade-row{
-      display:grid;
-      grid-template-columns:1.2fr .9fr .9fr .9fr;
-      gap:12px;
-      align-items:center;
-      background:#0b1320;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px 16px;
-      font-size:14px;
-      text-align:center;
-    }
-
-    .trade-row.header{
-      background:transparent;
-      border:none;
-      color:var(--muted);
-      font-weight:800;
-      padding:0 6px 10px;
-    }
-
-    .chart-image{
-      overflow:hidden;
-      border-radius:22px;
-      border:1px solid var(--line);
-      margin-top:16px;
-    }
-
-    .chart-image img{
-      width:100%;
-      height:320px;
-      object-fit:cover;
+    .performance-date{
+      font-size:13px;
+      color:#94a3b8;
+      line-height:1.7;
     }
 
     .features-grid,
@@ -720,10 +673,10 @@
     }
 
     @media (max-width:1100px){
-      .hero-grid,.results-grid{grid-template-columns:1fr}
+      .hero-grid{grid-template-columns:1fr}
       .hero-stats{grid-template-columns:repeat(2,1fr)}
       .features-grid{grid-template-columns:repeat(2,1fr)}
-      .reviews-grid,.news-grid{grid-template-columns:1fr}
+      .reviews-grid,.news-grid,.results-grid{grid-template-columns:1fr}
     }
 
     @media (max-width:760px){
@@ -732,12 +685,8 @@
       .hero h1{font-size:42px}
       .hero p{font-size:17px}
       .hero-stats,
-      .performance,
       .features-grid,
       .steps-grid{grid-template-columns:1fr}
-      .trade-row{grid-template-columns:1fr 1fr}
-      .trade-row.header{display:none}
-      .chart-image img{height:220px}
       .section-head h2{font-size:30px}
     }
   </style>
@@ -863,69 +812,36 @@
         <div class="section-head">
           <div class="gold-line"></div>
           <h2>نتائج SwiftFlow</h2>
-          <p>عرض احترافي للأداء والنتائج والتقارير بأسلوب قريب من منصات التحليل والمتابعة.</p>
+          <p>قسم منظم للنتائج اليومية والأسبوعية والشهرية. التواريخ تحت كل بطاقة.</p>
         </div>
 
         <div class="results-grid">
-          <div class="panel">
-            <div class="tv-top">
-              <div class="tv-badge">TradingView Style</div>
-              <div class="tv-title">Performance Snapshot</div>
-            </div>
-
-            <div class="performance">
-              <div class="performance-card">
-                <div class="small">نتائج اليوم</div>
-                <div class="big" style="color:var(--green)">+$810</div>
-              </div>
-              <div class="performance-card">
-                <div class="small">نتائج الأسبوع</div>
-                <div class="big" style="color:var(--green)">+$12,510</div>
-              </div>
-              <div class="performance-card">
-                <div class="small">التقارير</div>
-                <div class="big" style="color:var(--gold2)">شفافة</div>
-              </div>
-            </div>
-
-            <div class="trade-list">
-              <div class="trade-row header">
-                <div>العقد</div>
-                <div>نوع الصفقة</div>
-                <div>الحالة</div>
-                <div>النتيجة</div>
-              </div>
-
-              <div class="trade-row">
-                <div>SPX 0DTE</div>
-                <div>Call</div>
-                <div style="color:var(--green);font-weight:900;">مغلقة</div>
-                <div style="color:var(--green);font-weight:900;">+$260</div>
-              </div>
-
-              <div class="trade-row">
-                <div>SPX Weekly</div>
-                <div>Put</div>
-                <div style="color:var(--green);font-weight:900;">مغلقة</div>
-                <div style="color:var(--green);font-weight:900;">+$340</div>
-              </div>
-
-              <div class="trade-row">
-                <div>SPX Momentum</div>
-                <div>Call</div>
-                <div style="color:var(--gold2);font-weight:900;">متابعة</div>
-                <div style="color:var(--gold2);font-weight:900;">Open</div>
-              </div>
+          <div class="performance-card">
+            <div class="tv-badge">Daily Result</div>
+            <div class="small">نتائج اليوم</div>
+            <div class="big" style="color:var(--green)">+$810</div>
+            <div class="performance-date">
+              التاريخ<br>
+              08-03-2026
             </div>
           </div>
 
-          <div class="panel">
-            <div class="tv-top">
-              <div class="tv-badge">Market Visual</div>
-              <div class="tv-title">Trading Setup</div>
+          <div class="performance-card">
+            <div class="tv-badge">Weekly Result</div>
+            <div class="small">نتائج الأسبوع</div>
+            <div class="big" style="color:var(--green)">+$12,510</div>
+            <div class="performance-date">
+              من الاثنين 03-03-2026<br>
+              إلى الجمعة 07-03-2026
             </div>
-            <div class="chart-image">
-              <img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?auto=format&fit=crop&w=1400&q=80" alt="Trading setup">
+          </div>
+
+          <div class="performance-card">
+            <div class="tv-badge">Monthly Result</div>
+            <div class="small">نتائج الشهر</div>
+            <div class="big" style="color:var(--gold2)">+$28,740</div>
+            <div class="performance-date">
+              شهر مارس 2026
             </div>
           </div>
         </div>
@@ -1108,7 +1024,7 @@
         <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank">الاشتراك عبر البوت</a>
         <a class="btn btn-dark" href="https://t.me/SwiftFlow_Support" target="_blank">خدمة العملاء</a>
       </div>
-      <div class="muted-note">الأسعار في الشريط تتحدث من Finnhub.</div>
+      <div class="muted-note">الأسعار في الشريط تتحدث تلقائيًا. النتائج لا تتحدث تلقائيًا إلا إذا ربطناها بمصدر من بوت التقارير.</div>
     </div>
   </div>
 
@@ -1124,12 +1040,13 @@
       { symbol: "META", label: "Meta" },
       { symbol: "TSLA", label: "Tesla" },
       { symbol: "AVGO", label: "Broadcom" },
+      { symbol: "BRK.B", label: "Berkshire" },
       { symbol: "LLY", label: "Eli Lilly" },
-      { symbol: "QQQ", label: "NASDAQ 100" },
+      { symbol: "QQQ", label: "NASDAQ" },
       { symbol: "DIA", label: "Dow Jones" },
-      { symbol: "VXX", label: "VIX Proxy" },
-      { symbol: "UUP", label: "Dollar Index Proxy" },
-      { symbol: "IEF", label: "US 10Y Proxy" }
+      { symbol: "VXX", label: "VIX" },
+      { symbol: "UUP", label: "DXY" },
+      { symbol: "IEF", label: "US10Y" }
     ];
 
     function classForChange(change){
