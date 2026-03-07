@@ -4,13 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SwiftFlow | SPX Options</title>
-  <meta name="description" content="منصة احترافية لمتابعة عقود SPX Options في الوقت الفعلي." />
+  <meta name="description" content="منصة احترافية لمتابعة عقود SPX Options في الوقت الفعلي.">
   <style>
     :root{
       --bg:#05070d;
       --bg2:#0a0f18;
       --card:#0d131d;
-      --card2:#111827;
       --line:rgba(255,255,255,.08);
       --text:#f8fafc;
       --muted:#b6c0cf;
@@ -24,6 +23,7 @@
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       font-family:Arial,sans-serif;
@@ -37,14 +37,18 @@
 
     a{text-decoration:none;color:inherit}
     img{max-width:100%;display:block}
-    .container{width:min(1180px, calc(100% - 32px));margin:auto}
+
+    .container{
+      width:min(1180px, calc(100% - 32px));
+      margin:auto;
+    }
 
     .topbar{
       position:sticky;
       top:0;
       z-index:100;
       backdrop-filter:blur(12px);
-      background:rgba(5,7,13,.75);
+      background:rgba(5,7,13,.78);
       border-bottom:1px solid var(--line);
     }
 
@@ -124,26 +128,27 @@
       border-color:var(--line);
     }
 
-    /* Seamless ticker */
+    /* ticker */
     .ticker-wrap{
       overflow:hidden;
       border-top:1px solid var(--line);
       border-bottom:1px solid var(--line);
       background:rgba(255,255,255,.02);
       direction:ltr;
+      position:relative;
     }
 
     .ticker-marquee{
       display:flex;
       width:max-content;
-      animation:tickerScroll 45s linear infinite;
+      animation:tickerMove 55s linear infinite;
       will-change:transform;
     }
 
     .ticker-track{
       display:flex;
-      gap:18px;
-      padding:12px 9px;
+      gap:14px;
+      padding:12px 7px;
       flex-shrink:0;
       min-width:max-content;
     }
@@ -152,11 +157,11 @@
       display:flex;
       align-items:center;
       gap:8px;
+      min-width:max-content;
       padding:10px 14px;
       border-radius:999px;
       background:rgba(255,255,255,.03);
       border:1px solid rgba(255,255,255,.06);
-      min-width:max-content;
       font-size:14px;
       color:#e5e7eb;
     }
@@ -170,14 +175,14 @@
     .down{color:var(--red);font-weight:700}
     .flat{color:#cbd5e1;font-weight:700}
 
-    @keyframes tickerScroll{
+    @keyframes tickerMove{
       from{transform:translateX(0)}
       to{transform:translateX(-50%)}
     }
 
     .hero{
       position:relative;
-      padding:80px 0 48px;
+      padding:70px 0 40px;
       overflow:hidden;
     }
 
@@ -217,7 +222,7 @@
     .hero-grid{
       display:grid;
       grid-template-columns:1.08fr .92fr;
-      gap:28px;
+      gap:26px;
       align-items:center;
     }
 
@@ -236,9 +241,9 @@
 
     .hero h1{
       margin:0 0 16px;
-      font-size:68px;
-      line-height:1.02;
-      letter-spacing:-1.8px;
+      font-size:64px;
+      line-height:1.03;
+      letter-spacing:-1.6px;
     }
 
     .hero h1 span{color:var(--gold2)}
@@ -246,7 +251,7 @@
     .hero p{
       margin:0 0 24px;
       font-size:20px;
-      line-height:1.95;
+      line-height:1.9;
       color:var(--muted);
       max-width:820px;
     }
@@ -270,6 +275,7 @@
       border-radius:20px;
       padding:18px;
       box-shadow:var(--shadow);
+      text-align:center;
     }
 
     .stat-label{
@@ -312,7 +318,7 @@
       border:1px solid rgba(255,255,255,.06);
       border-radius:22px;
       padding:18px;
-      min-height:520px;
+      min-height:500px;
     }
 
     .screen-top{
@@ -402,16 +408,20 @@
     }
 
     .section{
-      padding:34px 0 18px;
+      padding:28px 0 10px;
+    }
+
+    .section-block{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:26px;
+      box-shadow:var(--shadow);
     }
 
     .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:22px;
+      text-align:center;
+      margin-bottom:24px;
     }
 
     .gold-line{
@@ -419,18 +429,18 @@
       height:4px;
       border-radius:999px;
       background:linear-gradient(90deg,var(--gold),var(--gold2));
-      margin-bottom:14px;
+      margin:0 auto 14px;
     }
 
     .section-head h2{
       margin:0;
-      font-size:36px;
-      letter-spacing:-.8px;
+      font-size:34px;
+      letter-spacing:-.6px;
     }
 
     .section-head p{
-      margin:8px 0 0;
-      max-width:820px;
+      margin:10px auto 0;
+      max-width:800px;
       color:var(--muted);
       font-size:17px;
       line-height:1.8;
@@ -439,7 +449,7 @@
     .results-grid{
       display:grid;
       grid-template-columns:1.05fr .95fr;
-      gap:24px;
+      gap:22px;
     }
 
     .panel,
@@ -490,6 +500,7 @@
       border:1px solid var(--line);
       border-radius:18px;
       padding:18px;
+      text-align:center;
     }
 
     .performance-card .small{
@@ -518,6 +529,7 @@
       border-radius:16px;
       padding:14px 16px;
       font-size:14px;
+      text-align:center;
     }
 
     .trade-row.header{
@@ -563,7 +575,11 @@
       background:rgba(212,165,73,.1);
       color:var(--gold2);
       font-size:24px;
-      margin-bottom:14px;
+      margin:0 auto 14px;
+    }
+
+    .card{
+      text-align:center;
     }
 
     .card h3{
@@ -587,12 +603,13 @@
       background:linear-gradient(135deg,var(--gold),var(--gold2));
       color:#111;
       font-weight:900;
-      margin-bottom:14px;
+      margin:0 auto 14px;
     }
 
     .review-top{
       display:flex;
       align-items:center;
+      justify-content:center;
       gap:12px;
       margin-bottom:14px;
     }
@@ -666,7 +683,7 @@
     .econ-row span:last-child{font-weight:900}
 
     .footer-cta{
-      margin:50px 0 70px;
+      margin:42px 0 70px;
       padding:28px;
       border-radius:28px;
       border:1px solid rgba(212,165,73,.14);
@@ -712,7 +729,7 @@
     @media (max-width:760px){
       .nav{flex-direction:column;align-items:stretch}
       .nav-links{justify-content:center}
-      .hero h1{font-size:44px}
+      .hero h1{font-size:42px}
       .hero p{font-size:17px}
       .hero-stats,
       .performance,
@@ -746,7 +763,7 @@
     </div>
 
     <div class="ticker-wrap">
-      <div class="ticker-marquee" id="tickerMarquee">
+      <div class="ticker-marquee">
         <div class="ticker-track" id="tickerTrackA"></div>
         <div class="ticker-track" id="tickerTrackB"></div>
       </div>
@@ -842,74 +859,74 @@
 
   <section id="results" class="section">
     <div class="container">
-      <div class="section-head">
-        <div>
+      <div class="section-block">
+        <div class="section-head">
           <div class="gold-line"></div>
           <h2>نتائج SwiftFlow</h2>
           <p>عرض احترافي للأداء والنتائج والتقارير بأسلوب قريب من منصات التحليل والمتابعة.</p>
         </div>
-      </div>
 
-      <div class="results-grid">
-        <div class="panel">
-          <div class="tv-top">
-            <div class="tv-badge">TradingView Style</div>
-            <div class="tv-title">Performance Snapshot</div>
+        <div class="results-grid">
+          <div class="panel">
+            <div class="tv-top">
+              <div class="tv-badge">TradingView Style</div>
+              <div class="tv-title">Performance Snapshot</div>
+            </div>
+
+            <div class="performance">
+              <div class="performance-card">
+                <div class="small">نتائج اليوم</div>
+                <div class="big" style="color:var(--green)">+$810</div>
+              </div>
+              <div class="performance-card">
+                <div class="small">نتائج الأسبوع</div>
+                <div class="big" style="color:var(--green)">+$12,510</div>
+              </div>
+              <div class="performance-card">
+                <div class="small">التقارير</div>
+                <div class="big" style="color:var(--gold2)">شفافة</div>
+              </div>
+            </div>
+
+            <div class="trade-list">
+              <div class="trade-row header">
+                <div>العقد</div>
+                <div>نوع الصفقة</div>
+                <div>الحالة</div>
+                <div>النتيجة</div>
+              </div>
+
+              <div class="trade-row">
+                <div>SPX 0DTE</div>
+                <div>Call</div>
+                <div style="color:var(--green);font-weight:900;">مغلقة</div>
+                <div style="color:var(--green);font-weight:900;">+$260</div>
+              </div>
+
+              <div class="trade-row">
+                <div>SPX Weekly</div>
+                <div>Put</div>
+                <div style="color:var(--green);font-weight:900;">مغلقة</div>
+                <div style="color:var(--green);font-weight:900;">+$340</div>
+              </div>
+
+              <div class="trade-row">
+                <div>SPX Momentum</div>
+                <div>Call</div>
+                <div style="color:var(--gold2);font-weight:900;">متابعة</div>
+                <div style="color:var(--gold2);font-weight:900;">Open</div>
+              </div>
+            </div>
           </div>
 
-          <div class="performance">
-            <div class="performance-card">
-              <div class="small">نتائج اليوم</div>
-              <div class="big" style="color:var(--green)">+$810</div>
+          <div class="panel">
+            <div class="tv-top">
+              <div class="tv-badge">Market Visual</div>
+              <div class="tv-title">Trading Setup</div>
             </div>
-            <div class="performance-card">
-              <div class="small">نتائج الأسبوع</div>
-              <div class="big" style="color:var(--green)">+$12,510</div>
+            <div class="chart-image">
+              <img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?auto=format&fit=crop&w=1400&q=80" alt="Trading setup">
             </div>
-            <div class="performance-card">
-              <div class="small">التقارير</div>
-              <div class="big" style="color:var(--gold2)">شفافة</div>
-            </div>
-          </div>
-
-          <div class="trade-list">
-            <div class="trade-row header">
-              <div>العقد</div>
-              <div>نوع الصفقة</div>
-              <div>الحالة</div>
-              <div>النتيجة</div>
-            </div>
-
-            <div class="trade-row">
-              <div>SPX 0DTE</div>
-              <div>Call</div>
-              <div style="color:var(--green);font-weight:900;">مغلقة</div>
-              <div style="color:var(--green);font-weight:900;">+$260</div>
-            </div>
-
-            <div class="trade-row">
-              <div>SPX Weekly</div>
-              <div>Put</div>
-              <div style="color:var(--green);font-weight:900;">مغلقة</div>
-              <div style="color:var(--green);font-weight:900;">+$340</div>
-            </div>
-
-            <div class="trade-row">
-              <div>SPX Momentum</div>
-              <div>Call</div>
-              <div style="color:var(--gold2);font-weight:900;">متابعة</div>
-              <div style="color:var(--gold2);font-weight:900;">Open</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="tv-top">
-            <div class="tv-badge">Market Visual</div>
-            <div class="tv-title">Trading Setup</div>
-          </div>
-          <div class="chart-image">
-            <img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?auto=format&fit=crop&w=1400&q=80" alt="Trading setup">
           </div>
         </div>
       </div>
@@ -918,37 +935,37 @@
 
   <section id="features" class="section">
     <div class="container">
-      <div class="section-head">
-        <div>
+      <div class="section-block">
+        <div class="section-head">
           <div class="gold-line"></div>
           <h2>ليش يختارون SwiftFlow؟</h2>
           <p>منصة مبنية لتوصيل الفرص والتحليلات للمشتركين بشكل احترافي وواضح.</p>
         </div>
-      </div>
 
-      <div class="features-grid">
-        <div class="card">
-          <div class="feature-icon">⚡</div>
-          <h3>تنبيهات مباشرة</h3>
-          <p>تنبيهات لحظية لعقود SPX Options عند ظهور الفرص وحركة السيولة.</p>
-        </div>
+        <div class="features-grid">
+          <div class="card">
+            <div class="feature-icon">⚡</div>
+            <h3>تنبيهات مباشرة</h3>
+            <p>تنبيهات لحظية لعقود SPX Options عند ظهور الفرص وحركة السيولة.</p>
+          </div>
 
-        <div class="card">
-          <div class="feature-icon">💧</div>
-          <h3>تحليل Flow</h3>
-          <p>تعتمد SwiftFlow على تحليل تدفق السيولة وقراءة زخم الحركة بدقة أعلى.</p>
-        </div>
+          <div class="card">
+            <div class="feature-icon">💧</div>
+            <h3>تحليل Flow</h3>
+            <p>تعتمد SwiftFlow على تحليل تدفق السيولة وقراءة زخم الحركة بدقة أعلى.</p>
+          </div>
 
-        <div class="card">
-          <div class="feature-icon">🧠</div>
-          <h3>مدعوم بالذكاء الاصطناعي</h3>
-          <p>أنظمة تحليل وخوارزميات متقدمة لدعم القرار ورصد أفضل الفرص المحتملة.</p>
-        </div>
+          <div class="card">
+            <div class="feature-icon">🧠</div>
+            <h3>مدعوم بالذكاء الاصطناعي</h3>
+            <p>أنظمة تحليل وخوارزميات متقدمة لدعم القرار ورصد أفضل الفرص المحتملة.</p>
+          </div>
 
-        <div class="card">
-          <div class="feature-icon">📊</div>
-          <h3>تقارير واضحة</h3>
-          <p>تقارير يومية وأسبوعية مرتبة تعكس النتائج وتدعم الثقة بالمحتوى.</p>
+          <div class="card">
+            <div class="feature-icon">📊</div>
+            <h3>تقارير واضحة</h3>
+            <p>تقارير يومية وأسبوعية مرتبة تعكس النتائج وتدعم الثقة بالمحتوى.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -956,31 +973,31 @@
 
   <section class="section">
     <div class="container">
-      <div class="section-head">
-        <div>
+      <div class="section-block">
+        <div class="section-head">
           <div class="gold-line"></div>
           <h2>الاشتراك بخطوات بسيطة</h2>
           <p>واجهة مباشرة تنقل الزائر من الموقع إلى البوت ثم إلى القناة الخاصة.</p>
         </div>
-      </div>
 
-      <div class="steps-grid">
-        <div class="card">
-          <div class="step-num">1</div>
-          <h3>اضغط على الاشتراك</h3>
-          <p>ابدأ مباشرة من زر الاشتراك الموجود في الواجهة الرئيسية.</p>
-        </div>
+        <div class="steps-grid">
+          <div class="card">
+            <div class="step-num">1</div>
+            <h3>اضغط على الاشتراك</h3>
+            <p>ابدأ مباشرة من زر الاشتراك الموجود في الواجهة الرئيسية.</p>
+          </div>
 
-        <div class="card">
-          <div class="step-num">2</div>
-          <h3>أكمل عبر البوت</h3>
-          <p>سيتم تحويلك إلى بوت الاشتراك الرسمي لإكمال الخطوات بسهولة.</p>
-        </div>
+          <div class="card">
+            <div class="step-num">2</div>
+            <h3>أكمل عبر البوت</h3>
+            <p>سيتم تحويلك إلى بوت الاشتراك الرسمي لإكمال الخطوات بسهولة.</p>
+          </div>
 
-        <div class="card">
-          <div class="step-num">3</div>
-          <h3>ادخل القناة الخاصة</h3>
-          <p>بعد التفعيل تبدأ المتابعة داخل قناة SwiftFlow الخاصة مباشرة.</p>
+          <div class="card">
+            <div class="step-num">3</div>
+            <h3>ادخل القناة الخاصة</h3>
+            <p>بعد التفعيل تبدأ المتابعة داخل قناة SwiftFlow الخاصة مباشرة.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -988,49 +1005,49 @@
 
   <section id="reviews" class="section">
     <div class="container">
-      <div class="section-head">
-        <div>
+      <div class="section-block">
+        <div class="section-head">
           <div class="gold-line"></div>
           <h2>آراء المشتركين</h2>
           <p>قسم يضيف ثقة أكبر ويعطي الموقع طابعًا احترافيًا مثل مواقع الخدمات والشركات.</p>
         </div>
-      </div>
 
-      <div class="reviews-grid">
-        <div class="card">
-          <div class="review-top">
-            <div class="avatar">A</div>
-            <div>
-              <div class="review-name">مشترك</div>
-              <div class="review-tag">عضو في القناة الخاصة</div>
+        <div class="reviews-grid">
+          <div class="card">
+            <div class="review-top">
+              <div class="avatar">A</div>
+              <div>
+                <div class="review-name">مشترك</div>
+                <div class="review-tag">عضو في القناة الخاصة</div>
+              </div>
             </div>
+            <p>التنبيهات واضحة والدخول مرتب، وأكثر شيء أعجبني هو سرعة المتابعة وقت الحركة.</p>
+            <div class="stars">★★★★★</div>
           </div>
-          <p>التنبيهات واضحة والدخول مرتب، وأكثر شيء أعجبني هو سرعة المتابعة وقت الحركة.</p>
-          <div class="stars">★★★★★</div>
-        </div>
 
-        <div class="card">
-          <div class="review-top">
-            <div class="avatar">M</div>
-            <div>
-              <div class="review-name">مشترك</div>
-              <div class="review-tag">SPX Options</div>
+          <div class="card">
+            <div class="review-top">
+              <div class="avatar">M</div>
+              <div>
+                <div class="review-name">مشترك</div>
+                <div class="review-tag">SPX Options</div>
+              </div>
             </div>
+            <p>فيه احترافية في الطرح والتقارير، وطريقة عرض النتائج جميلة وتعطي ثقة قوية.</p>
+            <div class="stars">★★★★★</div>
           </div>
-          <p>فيه احترافية في الطرح والتقارير، وطريقة عرض النتائج جميلة وتعطي ثقة قوية.</p>
-          <div class="stars">★★★★★</div>
-        </div>
 
-        <div class="card">
-          <div class="review-top">
-            <div class="avatar">S</div>
-            <div>
-              <div class="review-name">مشترك</div>
-              <div class="review-tag">متابعة يومية</div>
+          <div class="card">
+            <div class="review-top">
+              <div class="avatar">S</div>
+              <div>
+                <div class="review-name">مشترك</div>
+                <div class="review-tag">متابعة يومية</div>
+              </div>
             </div>
+            <p>قسم النتائج والدعم والبوت مرتب جدًا، وطريقة الاشتراك صارت أسهل بكثير.</p>
+            <div class="stars">★★★★★</div>
           </div>
-          <p>قسم النتائج والدعم والبوت مرتب جدًا، وطريقة الاشتراك صارت أسهل بكثير.</p>
-          <div class="stars">★★★★★</div>
         </div>
       </div>
     </div>
@@ -1038,45 +1055,45 @@
 
   <section id="news" class="section">
     <div class="container">
-      <div class="section-head">
-        <div>
+      <div class="section-block">
+        <div class="section-head">
           <div class="gold-line"></div>
           <h2>الأخبار والبيانات المهمة</h2>
           <p>بيانات اقتصادية مؤثرة على السوق مثل الفائدة والبطالة والتضخم، مع السابق والحالي والمتوقع.</p>
         </div>
-      </div>
 
-      <div class="news-grid">
-        <div class="card">
-          <div class="news-badge">High Impact</div>
-          <div class="news-title">قرار الفائدة</div>
-          <p>من أكثر الأخبار تأثيرًا على حركة السوق والتذبذب، خاصة على المؤشرات والعقود القصيرة.</p>
-          <div class="econ">
-            <div class="econ-row"><span>السابق</span><span>5.50%</span></div>
-            <div class="econ-row"><span>الحالي</span><span>--</span></div>
-            <div class="econ-row"><span>المتوقع</span><span>5.25%</span></div>
+        <div class="news-grid">
+          <div class="card">
+            <div class="news-badge">High Impact</div>
+            <div class="news-title">قرار الفائدة</div>
+            <p>من أكثر الأخبار تأثيرًا على حركة السوق والتذبذب، خاصة على المؤشرات والعقود القصيرة.</p>
+            <div class="econ">
+              <div class="econ-row"><span>السابق</span><span>5.50%</span></div>
+              <div class="econ-row"><span>الحالي</span><span>--</span></div>
+              <div class="econ-row"><span>المتوقع</span><span>5.25%</span></div>
+            </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="news-badge">High Impact</div>
-          <div class="news-title">البطالة</div>
-          <p>تؤثر على توقعات الاقتصاد، شهية المخاطرة، وحركة المؤشرات الرئيسية في السوق الأمريكي.</p>
-          <div class="econ">
-            <div class="econ-row"><span>السابق</span><span>4.0%</span></div>
-            <div class="econ-row"><span>الحالي</span><span>--</span></div>
-            <div class="econ-row"><span>المتوقع</span><span>4.1%</span></div>
+          <div class="card">
+            <div class="news-badge">High Impact</div>
+            <div class="news-title">البطالة</div>
+            <p>تؤثر على توقعات الاقتصاد، شهية المخاطرة، وحركة المؤشرات الرئيسية في السوق الأمريكي.</p>
+            <div class="econ">
+              <div class="econ-row"><span>السابق</span><span>4.0%</span></div>
+              <div class="econ-row"><span>الحالي</span><span>--</span></div>
+              <div class="econ-row"><span>المتوقع</span><span>4.1%</span></div>
+            </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="news-badge">High Impact</div>
-          <div class="news-title">التضخم / CPI</div>
-          <p>من أهم البيانات المؤثرة لأنها تغير توقعات الفائدة وتزيد حساسية العقود للحركة.</p>
-          <div class="econ">
-            <div class="econ-row"><span>السابق</span><span>3.3%</span></div>
-            <div class="econ-row"><span>الحالي</span><span>--</span></div>
-            <div class="econ-row"><span>المتوقع</span><span>3.2%</span></div>
+          <div class="card">
+            <div class="news-badge">High Impact</div>
+            <div class="news-title">التضخم / CPI</div>
+            <p>من أهم البيانات المؤثرة لأنها تغير توقعات الفائدة وتزيد حساسية العقود للحركة.</p>
+            <div class="econ">
+              <div class="econ-row"><span>السابق</span><span>3.3%</span></div>
+              <div class="econ-row"><span>الحالي</span><span>--</span></div>
+              <div class="econ-row"><span>المتوقع</span><span>3.2%</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -1091,7 +1108,7 @@
         <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank">الاشتراك عبر البوت</a>
         <a class="btn btn-dark" href="https://t.me/SwiftFlow_Support" target="_blank">خدمة العملاء</a>
       </div>
-      <div class="muted-note">الأسعار في الشريط تتحدث من Finnhub، والأخبار الاقتصادية هنا قابلة للتعديل يدويًا.</div>
+      <div class="muted-note">الأسعار في الشريط تتحدث من Finnhub.</div>
     </div>
   </div>
 
@@ -1129,8 +1146,7 @@
 
     async function getQuote(symbol){
       const res = await fetch(`https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(symbol)}&token=${API_KEY}`);
-      const data = await res.json();
-      return data;
+      return await res.json();
     }
 
     function renderTickerItems(items){
