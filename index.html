@@ -1115,6 +1115,38 @@
 
     loadTicker();
     setInterval(loadTicker, 15000);
-  </script>
+<script>
+
+fetch("/report.json", { cache: "no-store" })
+.then(r => r.json())
+.then(data => {
+
+document.querySelector("#dailyAmount").textContent =
+"+$" + data.daily.amount;
+
+document.querySelector("#dailyDate").textContent =
+data.daily.date;
+
+document.querySelector("#weeklyAmount").textContent =
+"+$" + data.weekly.amount;
+
+document.querySelector("#weeklyFrom").textContent =
+data.weekly.from;
+
+document.querySelector("#weeklyTo").textContent =
+data.weekly.to;
+
+document.querySelector("#monthlyAmount").textContent =
+"+$" + data.monthly.amount;
+
+document.querySelector("#monthlyFrom").textContent =
+data.monthly.from;
+
+document.querySelector("#monthlyTo").textContent =
+data.monthly.to;
+
+});
+
+</script>
 </body>
 </html>
