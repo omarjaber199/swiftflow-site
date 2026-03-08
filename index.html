@@ -128,6 +128,12 @@
       border-color:var(--line);
     }
 
+    .btn-blue{
+      color:#fff;
+      background:linear-gradient(135deg,#2563eb,#3b82f6);
+      box-shadow:0 18px 40px rgba(37,99,235,.22);
+    }
+
     .ticker-wrap{
       overflow:hidden;
       border-top:1px solid var(--line);
@@ -455,7 +461,7 @@
       gap:18px;
     }
 
-    .panel,
+    .performance-card,
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
       border:1px solid var(--line);
@@ -480,12 +486,8 @@
     }
 
     .performance-card{
-      background:#0b1320;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:20px;
       text-align:center;
-      height:100%;
+      background:#0b1320;
     }
 
     .performance-card .small{
@@ -594,6 +596,11 @@
       font-size:18px;
       letter-spacing:2px;
       margin-top:14px;
+    }
+
+    .review-cta{
+      text-align:center;
+      margin-top:18px;
     }
 
     .news-badge{
@@ -812,36 +819,37 @@
         <div class="section-head">
           <div class="gold-line"></div>
           <h2>نتائج SwiftFlow</h2>
-          <p>قسم منظم للنتائج اليومية والأسبوعية والشهرية. التواريخ تحت كل بطاقة.</p>
+          <p>قسم منظم للنتائج اليومية والأسبوعية والشهرية، ويتم تحديثه تلقائيًا من ملف التقرير.</p>
         </div>
 
         <div class="results-grid">
           <div class="performance-card">
             <div class="tv-badge">Daily Result</div>
             <div class="small">نتائج اليوم</div>
-            <div class="big" style="color:var(--green)">+$810</div>
+            <div class="big" id="dailyAmount" style="color:var(--green)">+$810</div>
             <div class="performance-date">
               التاريخ<br>
-              08-03-2026
+              <span id="dailyDate">2026-03-08</span>
             </div>
           </div>
 
           <div class="performance-card">
             <div class="tv-badge">Weekly Result</div>
             <div class="small">نتائج الأسبوع</div>
-            <div class="big" style="color:var(--green)">+$12,510</div>
+            <div class="big" id="weeklyAmount" style="color:var(--green)">+$12,510</div>
             <div class="performance-date">
-              من الاثنين 03-03-2026<br>
-              إلى الجمعة 07-03-2026
+              من <span id="weeklyFrom">2026-03-03</span><br>
+              إلى <span id="weeklyTo">2026-03-07</span>
             </div>
           </div>
 
           <div class="performance-card">
             <div class="tv-badge">Monthly Result</div>
             <div class="small">نتائج الشهر</div>
-            <div class="big" style="color:var(--gold2)">+$28,740</div>
+            <div class="big" id="monthlyAmount" style="color:var(--gold2)">+$28,740</div>
             <div class="performance-date">
-              شهر مارس 2026
+              من <span id="monthlyFrom">2026-03-01</span><br>
+              إلى <span id="monthlyTo">2026-03-31</span>
             </div>
           </div>
         </div>
@@ -925,7 +933,7 @@
         <div class="section-head">
           <div class="gold-line"></div>
           <h2>آراء المشتركين</h2>
-          <p>قسم يضيف ثقة أكبر ويعطي الموقع طابعًا احترافيًا مثل مواقع الخدمات والشركات.</p>
+          <p>شاركنا تجربتك مع SwiftFlow، وقد نعرض أفضل الآراء في الموقع.</p>
         </div>
 
         <div class="reviews-grid">
@@ -964,6 +972,10 @@
             <p>قسم النتائج والدعم والبوت مرتب جدًا، وطريقة الاشتراك صارت أسهل بكثير.</p>
             <div class="stars">★★★★★</div>
           </div>
+        </div>
+
+        <div class="review-cta">
+          <a class="btn btn-blue" href="https://docs.google.com/forms/d/e/1FAIpQLSfjdJrMslADoMvxa9lJWnmkubwr2y_NXvdDbq7bHsmscEk6ww/viewform?usp=publish-editor" target="_blank">⭐ شاركنا رأيك</a>
         </div>
       </div>
     </div>
@@ -1024,7 +1036,7 @@
         <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank">الاشتراك عبر البوت</a>
         <a class="btn btn-dark" href="https://t.me/SwiftFlow_Support" target="_blank">خدمة العملاء</a>
       </div>
-      <div class="muted-note">الأسعار في الشريط تتحدث تلقائيًا. النتائج لا تتحدث تلقائيًا إلا إذا ربطناها بمصدر من بوت التقارير.</div>
+      <div class="muted-note">الأسعار في الشريط تتحدث تلقائيًا، والنتائج تُقرأ من report.json.</div>
     </div>
   </div>
 
@@ -1113,40 +1125,24 @@
       trackB.innerHTML = html;
     }
 
+    fetch("/report.json", { cache: "no-store" })
+    .then(r => r.json())
+    .then(data => {
+      document.querySelector("#dailyAmount").textContent = "+$" + data.daily.amount;
+      document.querySelector("#dailyDate").textContent = data.daily.date;
+
+      document.querySelector("#weeklyAmount").textContent = "+$" + data.weekly.amount;
+      document.querySelector("#weeklyFrom").textContent = data.weekly.from;
+      document.querySelector("#weeklyTo").textContent = data.weekly.to;
+
+      document.querySelector("#monthlyAmount").textContent = "+$" + data.monthly.amount;
+      document.querySelector("#monthlyFrom").textContent = data.monthly.from;
+      document.querySelector("#monthlyTo").textContent = data.monthly.to;
+    })
+    .catch(() => {});
+
     loadTicker();
     setInterval(loadTicker, 15000);
-<script>
-
-fetch("/report.json", { cache: "no-store" })
-.then(r => r.json())
-.then(data => {
-
-document.querySelector("#dailyAmount").textContent =
-"+$" + data.daily.amount;
-
-document.querySelector("#dailyDate").textContent =
-data.daily.date;
-
-document.querySelector("#weeklyAmount").textContent =
-"+$" + data.weekly.amount;
-
-document.querySelector("#weeklyFrom").textContent =
-data.weekly.from;
-
-document.querySelector("#weeklyTo").textContent =
-data.weekly.to;
-
-document.querySelector("#monthlyAmount").textContent =
-"+$" + data.monthly.amount;
-
-document.querySelector("#monthlyFrom").textContent =
-data.monthly.from;
-
-document.querySelector("#monthlyTo").textContent =
-data.monthly.to;
-
-});
-
-</script>
+  </script>
 </body>
 </html>
