@@ -1,18 +1,70 @@
 {
-  "updated_at": "2026-03-09T06:10:00+03:00",
+  "updated_at": "2026-03-08T23:09:35.695918",
   "currency": "USD",
   "daily": {
-    "amount": 0,
-    "date": "2026-03-09"
+    "amount": 0.0,
+    "date": "2026-03-08"
   },
   "weekly": {
-    "amount": 12510,
+    "amount": 13320.0,
     "from": "2026-03-02",
-    "to": "2026-03-06"
+    "to": "2026-03-08"
   },
   "monthly": {
-    "amount": 12510,
+    "amount": 13320.0,
     "from": "2026-03-01",
-    "to": "2026-03-31"
-  }
+    "to": "2026-03-08"
+  },
+  "recent_trades": [
+    {
+      "id": 46,
+      "date": "2026-03-07",
+      "strike": 6725,
+      "type": "PUT",
+      "entry": 2.3,
+      "exit": 6.8,
+      "qty": 1,
+      "profit": 450.0
+    },
+    {
+      "id": 45,
+      "date": "2026-03-07",
+      "strike": 6730,
+      "type": "PUT",
+      "entry": 2.7,
+      "exit": 10.0,
+      "qty": 1,
+      "profit": 730.0
+    },
+    {
+      "id": 44,
+      "date": "2026-03-07",
+      "strike": 6780,
+      "type": "CALL",
+      "entry": 2.5,
+      "exit": 5.4,
+      "qty": 1,
+      "profit": 290.0
+    },
+    {
+      "id": 43,
+      "date": "2026-03-07",
+      "strike": 6665,
+      "type": "PUT",
+      "entry": 3.3,
+      "exit": 0.0,
+      "qty": 1,
+      "profit": -330.0
+    },
+    {
+      "id": 42,
+      "date": "2026-03-07",
+      "strike": 6825,
+      "type": "CALL",
+      "entry": 3.3,
+      "exit": 0.0,
+      "qty": 1,
+      "profit": -330.0
+    }
+  ]
 }
