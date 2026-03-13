@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>SwiftFlow | SPX Options</title>
-  <meta name="description" content="SwiftFlow SPX Options — AI-powered market dashboard, live bias, daily/weekly/monthly results, and SPX flow snapshot." />
+  <meta name="description" content="SwiftFlow SPX Options — premium AI-powered dashboard for SPX market tracking, results, flow, and bias." />
 
-  <!-- No cache -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -18,27 +17,28 @@
 
   <style>
     :root{
-      --bg:#06101f;
-      --bg-2:#0a1830;
-      --card:#0b1730;
-      --card-2:rgba(12,24,48,0.88);
+      --bg:#030816;
+      --bg2:#071326;
+      --card:rgba(10,20,40,0.82);
+      --card-strong:#0b1730;
       --line:rgba(255,255,255,0.08);
       --text:#eef4ff;
-      --muted:#9cb2d6;
+      --muted:#9ab0d2;
       --blue:#4ea1ff;
-      --blue-2:#2d6bff;
+      --blue2:#245cff;
       --green:#22e59d;
-      --red:#ff5f7a;
-      --glow:0 0 0 1px rgba(255,255,255,0.04), 0 12px 35px rgba(0,0,0,0.35);
-      --radius:22px;
-      --radius-sm:16px;
+      --red:#ff617d;
+      --gold:#f3c969;
+      --shadow:0 10px 35px rgba(0,0,0,0.35);
+      --radius:24px;
+      --radius2:18px;
       --container:1200px;
     }
 
     *{
-      box-sizing:border-box;
       margin:0;
       padding:0;
+      box-sizing:border-box;
     }
 
     html{
@@ -47,14 +47,13 @@
 
     body{
       font-family:'Inter',sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(45,107,255,0.16), transparent 30%),
-        radial-gradient(circle at top right, rgba(34,229,157,0.09), transparent 28%),
-        linear-gradient(180deg, #040b16 0%, #071224 35%, #06101f 100%);
       color:var(--text);
       min-height:100vh;
-      line-height:1.6;
       overflow-x:hidden;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(36,92,255,0.18), transparent 25%),
+        radial-gradient(circle at 90% 15%, rgba(34,229,157,0.10), transparent 22%),
+        linear-gradient(180deg, #020713 0%, #06101f 45%, #071427 100%);
     }
 
     a{
@@ -71,38 +70,43 @@
       position:sticky;
       top:0;
       z-index:100;
+      background:rgba(2,8,18,0.68);
       backdrop-filter:blur(18px);
-      background:rgba(4,10,20,0.72);
       border-bottom:1px solid rgba(255,255,255,0.05);
     }
 
     .nav{
+      min-height:78px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:20px;
-      min-height:76px;
+      gap:18px;
     }
 
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
+      font-size:18px;
       font-weight:800;
       letter-spacing:0.2px;
-      font-size:18px;
     }
 
-    .brand-badge{
-      width:40px;
-      height:40px;
+    .brand-icon{
+      width:42px;
+      height:42px;
       border-radius:14px;
-      background:linear-gradient(135deg, #2d6bff, #22e59d);
       display:grid;
       place-items:center;
-      color:white;
+      background:linear-gradient(135deg, var(--blue2), var(--green));
+      color:#fff;
+      box-shadow:0 10px 30px rgba(36,92,255,0.35);
+      font-size:14px;
       font-weight:800;
-      box-shadow:0 10px 25px rgba(45,107,255,0.35);
+    }
+
+    .brand span{
+      color:#8fbaff;
     }
 
     .nav-links{
@@ -113,8 +117,8 @@
     }
 
     .nav-links a{
+      font-size:13px;
       color:var(--muted);
-      font-size:14px;
       transition:0.2s ease;
     }
 
@@ -126,6 +130,7 @@
       display:flex;
       align-items:center;
       gap:10px;
+      flex-wrap:wrap;
     }
 
     .btn{
@@ -135,22 +140,22 @@
       gap:8px;
       padding:12px 18px;
       border-radius:14px;
-      border:1px solid transparent;
-      font-size:14px;
+      font-size:13px;
       font-weight:700;
-      transition:0.22s ease;
+      border:1px solid transparent;
+      transition:0.2s ease;
       cursor:pointer;
+      white-space:nowrap;
     }
 
     .btn-primary{
-      background:linear-gradient(135deg, var(--blue-2), var(--blue));
+      background:linear-gradient(135deg, var(--blue2), var(--blue));
       color:#fff;
-      box-shadow:0 10px 28px rgba(45,107,255,0.30);
+      box-shadow:0 12px 28px rgba(36,92,255,0.32);
     }
 
     .btn-primary:hover{
       transform:translateY(-1px);
-      box-shadow:0 15px 32px rgba(45,107,255,0.38);
     }
 
     .btn-secondary{
@@ -164,38 +169,40 @@
     }
 
     .hero{
-      padding:72px 0 42px;
+      padding:74px 0 34px;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.2fr 0.8fr;
-      gap:26px;
+      grid-template-columns:1.18fr 0.82fr;
+      gap:22px;
       align-items:stretch;
     }
 
-    .hero-card,
-    .glass-card{
-      background:var(--card-2);
+    .card{
+      background:var(--card);
       border:1px solid var(--line);
       border-radius:var(--radius);
-      box-shadow:var(--glow);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(12px);
     }
 
     .hero-main{
-      padding:38px;
+      padding:40px;
+      min-height:450px;
       position:relative;
       overflow:hidden;
-      min-height:420px;
     }
 
     .hero-main::before{
       content:"";
       position:absolute;
-      inset:auto -80px -120px auto;
-      width:260px;
-      height:260px;
-      background:radial-gradient(circle, rgba(78,161,255,0.22), transparent 65%);
+      right:-90px;
+      bottom:-110px;
+      width:270px;
+      height:270px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(78,161,255,0.18), transparent 70%);
       pointer-events:none;
     }
 
@@ -203,26 +210,26 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:8px 12px;
+      padding:8px 14px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,0.08);
-      background:rgba(255,255,255,0.03);
-      color:#c7d8f6;
+      border:1px solid rgba(243,201,105,0.18);
+      background:rgba(243,201,105,0.08);
+      color:var(--gold);
       font-size:12px;
       font-weight:700;
       margin-bottom:18px;
     }
 
     .hero-title{
-      font-size:clamp(32px, 5vw, 58px);
-      line-height:1.05;
-      letter-spacing:-1.5px;
+      font-size:clamp(34px, 5vw, 60px);
+      line-height:1.03;
+      letter-spacing:-1.6px;
       font-weight:800;
-      max-width:780px;
+      max-width:760px;
     }
 
     .hero-title .accent{
-      background:linear-gradient(90deg, #7cb8ff, #28e8a0);
+      background:linear-gradient(90deg, #f7d278 0%, #8fc2ff 50%, #23e6a2 100%);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
       background-clip:text;
@@ -231,39 +238,40 @@
 
     .hero-subtitle{
       margin-top:18px;
-      max-width:720px;
+      max-width:760px;
       color:var(--muted);
-      font-size:15px;
+      font-size:14px;
+      line-height:1.8;
     }
 
     .hero-actions{
       margin-top:26px;
       display:flex;
-      flex-wrap:wrap;
       gap:12px;
+      flex-wrap:wrap;
     }
 
-    .hero-stats{
+    .hero-mini{
       margin-top:28px;
       display:grid;
       grid-template-columns:repeat(3, 1fr);
       gap:14px;
     }
 
-    .mini-stat{
+    .mini-box{
       padding:16px;
       border-radius:18px;
       background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.06);
     }
 
-    .mini-stat .label{
+    .mini-box .label{
       color:var(--muted);
-      font-size:12px;
+      font-size:11px;
       margin-bottom:6px;
     }
 
-    .mini-stat .value{
+    .mini-box .value{
       font-size:20px;
       font-weight:800;
       letter-spacing:-0.5px;
@@ -276,21 +284,22 @@
       align-content:start;
     }
 
-    .side-panel{
+    .side-box{
+      padding:18px;
+      border-radius:20px;
       background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.06);
-      border-radius:20px;
-      padding:18px;
     }
 
-    .side-panel h3{
+    .side-box h3{
       font-size:15px;
-      margin-bottom:10px;
+      margin-bottom:8px;
     }
 
-    .side-panel p{
+    .side-box p{
       color:var(--muted);
       font-size:13px;
+      line-height:1.7;
     }
 
     .bias-chip{
@@ -298,56 +307,53 @@
       align-items:center;
       justify-content:center;
       min-width:120px;
+      margin-top:12px;
       padding:10px 14px;
       border-radius:999px;
-      margin-top:12px;
-      font-size:13px;
+      font-size:12px;
       font-weight:800;
-      background:rgba(34,229,157,0.12);
+      border:1px solid rgba(34,229,157,0.25);
+      background:rgba(34,229,157,0.10);
       color:var(--green);
-      border:1px solid rgba(34,229,157,0.22);
     }
 
     section{
-      padding:18px 0 14px;
+      padding:16px 0;
     }
 
     .section-head{
       margin-bottom:18px;
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
     }
 
     .section-title{
-      font-size:26px;
+      font-size:28px;
       font-weight:800;
       letter-spacing:-0.8px;
     }
 
     .section-desc{
+      margin-top:8px;
       color:var(--muted);
       font-size:14px;
-      max-width:760px;
-      margin-top:8px;
+      line-height:1.8;
+      max-width:780px;
     }
 
     .about-card{
-      padding:28px;
+      padding:30px;
     }
 
     .about-grid{
       display:grid;
-      grid-template-columns:1.2fr 0.8fr;
+      grid-template-columns:1.15fr 0.85fr;
       gap:20px;
       align-items:start;
     }
 
-    .about-text p{
+    .about-copy p{
       color:var(--muted);
       font-size:14px;
+      line-height:1.9;
       margin-bottom:12px;
     }
 
@@ -356,36 +362,35 @@
       gap:12px;
     }
 
-    .about-point{
+    .point{
       padding:16px 18px;
       border-radius:18px;
       background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.06);
     }
 
-    .about-point strong{
+    .point strong{
       display:block;
-      margin-bottom:6px;
       font-size:14px;
+      margin-bottom:6px;
+      color:#fff;
     }
 
-    .about-point span{
+    .point span{
       color:var(--muted);
       font-size:13px;
+      line-height:1.7;
     }
 
     .results-grid{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(3,1fr);
       gap:18px;
     }
 
     .result-card{
       padding:24px;
-      min-height:190px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
+      min-height:205px;
       position:relative;
       overflow:hidden;
     }
@@ -393,10 +398,12 @@
     .result-card::after{
       content:"";
       position:absolute;
-      inset:auto -50px -80px auto;
-      width:180px;
-      height:180px;
-      background:radial-gradient(circle, rgba(78,161,255,0.15), transparent 65%);
+      right:-50px;
+      bottom:-70px;
+      width:170px;
+      height:170px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(78,161,255,0.14), transparent 70%);
       pointer-events:none;
     }
 
@@ -405,26 +412,25 @@
       align-items:center;
       padding:8px 12px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,0.08);
-      background:rgba(255,255,255,0.03);
-      color:#d8e5ff;
       font-size:12px;
       font-weight:700;
-      width:max-content;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      color:#dbe8ff;
     }
 
-    .result-label{
-      color:#d7e6ff;
+    .result-title{
+      margin-top:16px;
       font-size:16px;
       font-weight:700;
-      margin-top:16px;
+      color:#dce8ff;
     }
 
     .result-value{
-      margin-top:8px;
+      margin-top:10px;
       font-size:46px;
       line-height:1;
-      letter-spacing:-1.4px;
+      letter-spacing:-1.5px;
       font-weight:800;
       color:var(--green);
     }
@@ -435,16 +441,17 @@
       font-size:13px;
     }
 
-    .result-updated{
-      margin-top:12px;
-      font-size:12px;
+    .result-note{
+      margin-top:14px;
       color:#84a0ca;
+      font-size:12px;
     }
 
     .dashboard-grid{
       display:grid;
-      grid-template-columns:1.1fr 1.1fr 0.8fr;
+      grid-template-columns:1.05fr 1.05fr 0.9fr;
       gap:18px;
+      align-items:start;
     }
 
     .widget{
@@ -454,13 +461,14 @@
 
     .widget h3{
       font-size:17px;
-      margin-bottom:12px;
+      margin-bottom:10px;
     }
 
     .widget-sub{
       color:var(--muted);
       font-size:13px;
       margin-bottom:12px;
+      line-height:1.7;
     }
 
     .embed-box{
@@ -481,7 +489,7 @@
       background:#081221;
     }
 
-    .market-side{
+    .side-stack{
       display:grid;
       gap:18px;
     }
@@ -497,15 +505,15 @@
       border-radius:14px;
       background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.06);
-      color:#d6e5ff;
       font-size:13px;
+      color:#d9e7ff;
     }
 
     .news-item span{
       display:block;
-      color:var(--muted);
-      font-size:12px;
       margin-top:4px;
+      font-size:12px;
+      color:var(--muted);
     }
 
     .flow-grid{
@@ -516,7 +524,7 @@
 
     .flow-card{
       padding:22px;
-      min-height:220px;
+      min-height:230px;
     }
 
     .flow-box{
@@ -527,10 +535,10 @@
 
     .flow-row{
       display:flex;
-      align-items:center;
       justify-content:space-between;
       gap:16px;
-      padding:12px 14px;
+      align-items:center;
+      padding:13px 14px;
       border-radius:16px;
       background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.06);
@@ -539,61 +547,42 @@
 
     .flow-row span{
       color:var(--muted);
+      display:block;
+      margin-top:3px;
     }
 
     .footer{
       padding:30px 0 44px;
-      color:var(--muted);
-      font-size:13px;
     }
 
     .footer-card{
       padding:18px 22px;
       display:flex;
       justify-content:space-between;
-      gap:16px;
+      gap:14px;
       flex-wrap:wrap;
-    }
-
-    .positive{
-      color:var(--green) !important;
-    }
-
-    .negative{
-      color:var(--red) !important;
-    }
-
-    .neutral{
-      color:#ffd76a !important;
-    }
-
-    .small{
-      font-size:12px;
       color:var(--muted);
+      font-size:13px;
     }
 
-    @media (max-width: 1100px){
+    .positive{ color:var(--green)!important; }
+    .negative{ color:var(--red)!important; }
+    .neutral{ color:var(--gold)!important; }
+
+    @media (max-width:1100px){
       .hero-grid,
       .about-grid,
       .dashboard-grid,
       .flow-grid{
         grid-template-columns:1fr;
       }
-
-      .market-side{
-        grid-template-columns:1fr 1fr;
-      }
     }
 
-    @media (max-width: 820px){
+    @media (max-width:820px){
       .nav{
         flex-direction:column;
         align-items:flex-start;
         padding:14px 0;
-      }
-
-      .nav-links{
-        gap:12px;
       }
 
       .hero{
@@ -605,17 +594,13 @@
         min-height:auto;
       }
 
-      .hero-stats,
+      .hero-mini,
       .results-grid{
         grid-template-columns:1fr;
       }
 
-      .market-side{
-        grid-template-columns:1fr;
-      }
-
       .section-title{
-        font-size:22px;
+        font-size:23px;
       }
 
       .result-value{
@@ -629,20 +614,20 @@
   <header class="topbar">
     <div class="container nav">
       <a href="#" class="brand">
-        <div class="brand-badge">SF</div>
-        <div>SwiftFlow <span style="color:#8ab7ff;">SPX Options</span></div>
+        <div class="brand-icon">SF</div>
+        <div>SwiftFlow <span>SPX Options</span></div>
       </a>
 
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#results">Results</a>
-        <a href="#dashboard">Market Dashboard</a>
+        <a href="#dashboard">Dashboard</a>
         <a href="#flow">Flow Snapshot</a>
       </nav>
 
       <div class="nav-cta">
-  <a class="btn btn-secondary" href="#results">Live Results</a>
-  <a class="btn btn-primary" href="https://t.me/subomarbot" target="_blank">Subscribe via Bot</a>
+        <a class="btn btn-secondary" href="#results">Live Results</a>
+        <a class="btn btn-primary" href="https://t.me/subomarbot" target="_blank">Subscribe via Bot</a>
       </div>
     </div>
   </header>
@@ -650,14 +635,17 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div class="hero-card hero-main">
-          <div class="eyebrow">AI-Powered SPX Options Intelligence</div>
+        <div class="card hero-main">
+          <div class="eyebrow">SPX Options • Real-Time • Flow • AI</div>
+
           <h1 class="hero-title">
-            Precision market insights for <span class="accent">SPX Options</span>
+            Premium visibility for <span class="accent">SPX Options</span> trading
           </h1>
+
           <p class="hero-subtitle">
-            SwiftFlow combines structured market tracking, flow awareness, visual dashboards,
-            and AI-assisted bias analysis to present a cleaner view of the SPX session.
+            SwiftFlow is built to deliver a cleaner and more professional view of the SPX market.
+            From automated results tracking to live market context, flow monitoring, and AI-assisted
+            directional bias, the platform is designed to keep the decision layer sharp, fast, and focused.
           </p>
 
           <div class="hero-actions">
@@ -665,40 +653,40 @@
             <a href="#dashboard" class="btn btn-secondary">Market Dashboard</a>
           </div>
 
-          <div class="hero-stats">
-            <div class="mini-stat">
+          <div class="hero-mini">
+            <div class="mini-box">
               <div class="label">Daily Result</div>
               <div class="value" id="heroDaily">$0</div>
             </div>
-            <div class="mini-stat">
+            <div class="mini-box">
               <div class="label">Weekly Result</div>
               <div class="value" id="heroWeekly">$0</div>
             </div>
-            <div class="mini-stat">
+            <div class="mini-box">
               <div class="label">Monthly Result</div>
               <div class="value" id="heroMonthly">$0</div>
             </div>
           </div>
         </div>
 
-        <div class="hero-card hero-side">
-          <div class="side-panel">
-            <h3>SwiftFlow Overview</h3>
+        <div class="card hero-side">
+          <div class="side-box">
+            <h3>SwiftFlow Standard</h3>
             <p>
-              A professional SPX-focused interface built to display live performance,
-              market context, and directional bias in one streamlined experience.
+              A premium dark interface built around clarity, elegant structure, and fast result visibility
+              for traders following SPX options with a more advanced presentation layer.
             </p>
           </div>
 
-          <div class="side-panel">
+          <div class="side-box">
             <h3>AI Market Bias</h3>
             <p id="heroBiasText">
-              Current internal view based on live positioning, structure, and flow context.
+              Live directional tone generated from the current report structure and visible performance behavior.
             </p>
             <div class="bias-chip" id="heroBiasChip">Bullish</div>
           </div>
 
-          <div class="side-panel">
+          <div class="side-box">
             <h3>Last Report Sync</h3>
             <p id="lastReportSync">Waiting for report update...</p>
           </div>
@@ -709,47 +697,46 @@
     <section id="about">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2 class="section-title">About SwiftFlow</h2>
-            <p class="section-desc">
-              SwiftFlow is designed around clarity, speed, and structured SPX options visibility.
-              The interface focuses on what matters most: market tone, performance tracking,
-              results visibility, and tactical context.
-            </p>
-          </div>
+          <h2 class="section-title">About SwiftFlow</h2>
+          <p class="section-desc">
+            SwiftFlow was designed to feel less like a crowded trading page and more like a refined
+            command center for SPX options. The focus is on readability, confidence, and fast access
+            to the information that actually matters during the session.
+          </p>
         </div>
 
-        <div class="glass-card about-card">
+        <div class="card about-card">
           <div class="about-grid">
-            <div class="about-text">
+            <div class="about-copy">
               <p>
-                SwiftFlow presents a cleaner, more professional way to monitor SPX options conditions.
-                Instead of scattered data and noisy dashboards, the platform organizes core information
-                into focused sections that are easier to scan and act on.
+                The platform brings together performance tracking, market structure, sentiment visibility,
+                and flow-based context inside one premium layout. Instead of scattered widgets and noisy
+                pages, SwiftFlow organizes the session into sections that are easy to scan and visually strong.
               </p>
               <p>
-                The goal is simple: keep the view sharp. Daily, weekly, and monthly results are pulled
-                automatically from the report feed, while the market dashboard gives a broader view of
-                sentiment, chart structure, and headlines.
+                Daily, weekly, and monthly numbers are pulled automatically from the live report feed,
+                allowing the results section to stay current without manual edits. The market dashboard adds
+                more context through heatmaps, chart structure, AI bias, and headline awareness.
               </p>
               <p>
-                The design has been refined to stay premium, dark, readable, and fast — suitable for a
-                modern trading brand built around SPX options precision.
+                Every element is tuned to match a sharper brand image: darker tones, smaller typography,
+                cleaner spacing, and stronger card hierarchy — all built around the identity of SwiftFlow
+                as a premium SPX options experience.
               </p>
             </div>
 
             <div class="about-points">
-              <div class="about-point">
-                <strong>Automated Results</strong>
-                <span>Daily, weekly, and monthly performance updates directly from the live report file.</span>
+              <div class="point">
+                <strong>Automated Result Sync</strong>
+                <span>Daily, weekly, and monthly performance pulled directly from report.json with cache bypass.</span>
               </div>
-              <div class="about-point">
-                <strong>Market Context</strong>
-                <span>Heatmap, SPX chart, AI bias, and selected news combined into a unified layout.</span>
+              <div class="point">
+                <strong>Market Intelligence Layer</strong>
+                <span>Heatmap, SPX chart, AI market bias, and market news combined into one clear structure.</span>
               </div>
-              <div class="about-point">
-                <strong>SPX Flow Snapshot</strong>
-                <span>A dedicated block for showing fast-reading options flow and market structure cues.</span>
+              <div class="point">
+                <strong>Premium SwiftFlow Identity</strong>
+                <span>Cleaner styling, more elegant spacing, stronger visual hierarchy, and a sharper trading brand feel.</span>
               </div>
             </div>
           </div>
@@ -760,43 +747,35 @@
     <section id="results">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2 class="section-title">Performance Results</h2>
-            <p class="section-desc">
-              Results are loaded automatically from the live report feed and refreshed without cache.
-            </p>
-          </div>
+          <h2 class="section-title">Performance Results</h2>
+          <p class="section-desc">
+            Live performance is loaded automatically from the report feed and refreshed without cache.
+          </p>
         </div>
 
         <div class="results-grid">
-          <div class="glass-card result-card">
+          <div class="card result-card">
             <div class="pill">Daily Result</div>
-            <div>
-              <div class="result-label">Today</div>
-              <div class="result-value" id="dailyAmount">+$0</div>
-              <div class="result-sub" id="dailyDate">—</div>
-            </div>
-            <div class="result-updated" id="dailyUpdated">Loading report...</div>
+            <div class="result-title">Today</div>
+            <div class="result-value" id="dailyAmount">+$0</div>
+            <div class="result-sub" id="dailyDate">—</div>
+            <div class="result-note" id="dailyUpdated">Loading report...</div>
           </div>
 
-          <div class="glass-card result-card">
+          <div class="card result-card">
             <div class="pill">Weekly Result</div>
-            <div>
-              <div class="result-label">This Week</div>
-              <div class="result-value" id="weeklyAmount">+$0</div>
-              <div class="result-sub" id="weeklyDate">—</div>
-            </div>
-            <div class="result-updated">Auto-synced from report.json</div>
+            <div class="result-title">This Week</div>
+            <div class="result-value" id="weeklyAmount">+$0</div>
+            <div class="result-sub" id="weeklyDate">—</div>
+            <div class="result-note">Auto-synced from report.json</div>
           </div>
 
-          <div class="glass-card result-card">
+          <div class="card result-card">
             <div class="pill">Monthly Result</div>
-            <div>
-              <div class="result-label">This Month</div>
-              <div class="result-value" id="monthlyAmount">+$0</div>
-              <div class="result-sub" id="monthlyDate">—</div>
-            </div>
-            <div class="result-updated">Cache-bypass enabled</div>
+            <div class="result-title">This Month</div>
+            <div class="result-value" id="monthlyAmount">+$0</div>
+            <div class="result-sub" id="monthlyDate">—</div>
+            <div class="result-note">No-cache refresh enabled</div>
           </div>
         </div>
       </div>
@@ -805,54 +784,48 @@
     <section id="dashboard">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2 class="section-title">Market Dashboard</h2>
-            <p class="section-desc">
-              A focused market view featuring heatmap, SPX chart, AI market bias, and headline monitoring.
-            </p>
-          </div>
+          <h2 class="section-title">Market Dashboard</h2>
+          <p class="section-desc">
+            A structured session view featuring sector heatmap, SPX chart, AI market bias, and market headlines.
+          </p>
         </div>
 
         <div class="dashboard-grid">
-          <div class="glass-card widget">
+          <div class="card widget">
             <h3>Heatmap</h3>
-            <p class="widget-sub">Sector overview and broad market pressure map.</p>
+            <p class="widget-sub">Broad market pressure map and sector rotation overview.</p>
             <iframe
               class="embed-box"
               src="https://s.tradingview.com/embed-widget/stock-heatmap/?locale=en#%7B%22exchanges%22%3A%5B%22SP%22%5D%2C%22dataSource%22%3A%22SPX500%22%2C%22grouping%22%3A%22sector%22%2C%22blockSize%22%3A%22market_cap_basic%22%2C%22blockColor%22%3A%22change%22%2C%22colorTheme%22%3A%22dark%22%2C%22hasTopBar%22%3Afalse%2C%22isDataSetEnabled%22%3Afalse%2C%22isZoomEnabled%22%3Atrue%2C%22hasSymbolTooltip%22%3Atrue%7D"
-              loading="lazy">
-            </iframe>
+              loading="lazy"></iframe>
           </div>
 
-          <div class="glass-card widget">
+          <div class="card widget">
             <h3>SPX Chart</h3>
-            <p class="widget-sub">Live chart window for SPX structure and intraday reaction zones.</p>
+            <p class="widget-sub">Live SPX structure for intraday reaction, trend, and timing visibility.</p>
             <iframe
               class="chart-box"
               src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_spx&symbol=SP%3ASPX&interval=15&hidesidetoolbar=1&hidetoptoolbar=1&symboledit=1&saveimage=0&toolbarbg=F1F3F6&theme=dark&style=1&timezone=Etc%2FUTC&studies=[]&withdateranges=1&hideideas=1"
-              loading="lazy">
-            </iframe>
+              loading="lazy"></iframe>
           </div>
 
-          <div class="market-side">
-            <div class="glass-card widget" style="min-height:150px;">
+          <div class="side-stack">
+            <div class="card widget" style="min-height:155px;">
               <h3>AI Market Bias</h3>
               <p class="widget-sub" id="biasDescription">
-                Bias generated from live dashboard context and current session behavior.
+                Bias generated from live report behavior and current session performance conditions.
               </p>
               <div class="bias-chip" id="marketBiasChip">Bullish</div>
-              <div class="small" style="margin-top:12px;" id="biasUpdated">
-                Last update: waiting...
-              </div>
+              <div class="result-note" id="biasUpdated" style="margin-top:12px;">Last update: waiting...</div>
             </div>
 
-            <div class="glass-card widget" style="min-height:150px;">
+            <div class="card widget" style="min-height:155px;">
               <h3>Market News</h3>
-              <p class="widget-sub">Quick headline placeholders for session catalysts.</p>
+              <p class="widget-sub">Headline space for key session catalysts and risk awareness.</p>
               <div class="news-list" id="newsList">
-                <div class="news-item">US index futures monitored for session continuation.<span>Live placeholder</span></div>
-                <div class="news-item">Volatility and macro headlines remain in focus.<span>Live placeholder</span></div>
-                <div class="news-item">SPX intraday structure watched near key reaction zones.<span>Live placeholder</span></div>
+                <div class="news-item">US index futures remain a key sentiment guide.<span>Live placeholder</span></div>
+                <div class="news-item">Volatility and macro headlines continue to shape risk appetite.<span>Live placeholder</span></div>
+                <div class="news-item">SPX structure stays in focus near reaction zones and trend levels.<span>Live placeholder</span></div>
               </div>
             </div>
           </div>
@@ -863,29 +836,60 @@
     <section id="flow">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h2 class="section-title">SPX Flow Snapshot</h2>
-            <p class="section-desc">
-              A compact visual block for highlighting recent flow tone, active strikes, and directional interest.
-            </p>
-          </div>
+          <h2 class="section-title">SPX Flow Snapshot</h2>
+          <p class="section-desc">
+            A compact flow block for reading the latest visible trades, tone, and short-form market notes.
+          </p>
         </div>
 
         <div class="flow-grid">
-          <div class="glass-card flow-card">
+          <div class="card flow-card">
             <h3>Recent Flow Pulse</h3>
             <div class="flow-box" id="recentTradesBox">
-              <div class="flow-row"><strong>No trades loaded yet</strong><span>Waiting for report</span></div>
+              <div class="flow-row">
+                <div>
+                  <strong>No trades loaded yet</strong>
+                  <span>Waiting for report</span>
+                </div>
+                <div class="neutral">—</div>
+              </div>
             </div>
           </div>
 
-          <div class="glass-card flow-card">
+          <div class="card flow-card">
             <h3>Snapshot Notes</h3>
             <div class="flow-box">
-              <div class="flow-row"><strong>Focus</strong><span>SPX Options / Intraday Structure</span></div>
-              <div class="flow-row"><strong>Mode</strong><span>AI-Assisted Market Reading</span></div>
-              <div class="flow-row"><strong>Dashboard</strong><span>Heatmap + Chart + Bias + News</span></div>
-              <div class="flow-row"><strong>Data Source</strong><span>Live report.json sync</span></div>
+              <div class="flow-row">
+                <div>
+                  <strong>Focus</strong>
+                  <span>SPX Options / Intraday Precision</span>
+                </div>
+                <div>Live</div>
+              </div>
+
+              <div class="flow-row">
+                <div>
+                  <strong>Engine</strong>
+                  <span>AI-assisted market reading layer</span>
+                </div>
+                <div>Active</div>
+              </div>
+
+              <div class="flow-row">
+                <div>
+                  <strong>Dashboard</strong>
+                  <span>Heatmap + Chart + Bias + News</span>
+                </div>
+                <div>Ready</div>
+              </div>
+
+              <div class="flow-row">
+                <div>
+                  <strong>Access</strong>
+                  <span>Subscription through Telegram bot</span>
+                </div>
+                <div>Open</div>
+              </div>
             </div>
           </div>
         </div>
@@ -895,8 +899,8 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="glass-card footer-card">
-        <div>© 2026 SwiftFlow — SPX Options Dashboard</div>
+      <div class="card footer-card">
+        <div>© 2026 SwiftFlow — Premium SPX Options Experience</div>
         <div id="footerUpdated">Report sync pending...</div>
       </div>
     </div>
@@ -935,7 +939,7 @@
         return {
           label: 'Bullish',
           className: 'positive',
-          text: 'Positive flow tone detected from current report structure and session performance.'
+          text: 'Positive tone detected from current report behavior and recent visible performance.'
         };
       }
 
@@ -943,22 +947,20 @@
         return {
           label: 'Bearish',
           className: 'negative',
-          text: 'Cautious / defensive tone detected from current report structure and recent performance.'
+          text: 'Defensive tone detected from current report behavior and recent visible performance.'
         };
       }
 
       return {
         label: 'Neutral',
         className: 'neutral',
-        text: 'Balanced tone with no strong directional edge from the current report snapshot.'
+        text: 'Balanced tone detected with no strong directional edge from the current report snapshot.'
       };
     }
 
     async function loadReport() {
       try {
-        const url = `${REPORT_URL}?t=${Date.now()}`;
-
-        const res = await fetch(url, {
+        const res = await fetch(`${REPORT_URL}?t=${Date.now()}`, {
           method: 'GET',
           cache: 'no-store',
           headers: {
@@ -995,6 +997,7 @@
           `${safeText(data?.monthly?.from)} → ${safeText(data?.monthly?.to)}`;
 
         const updatedAt = safeText(data?.updated_at, 'Unknown');
+
         document.getElementById('dailyUpdated').textContent = `Last sync: ${updatedAt}`;
         document.getElementById('lastReportSync').textContent = updatedAt;
         document.getElementById('footerUpdated').textContent = `Last report update: ${updatedAt}`;
@@ -1044,14 +1047,16 @@
         } else {
           tradesBox.innerHTML = `
             <div class="flow-row">
-              <strong>No recent trades</strong>
-              <span>Report has no recent_trades yet</span>
+              <div>
+                <strong>No recent trades</strong>
+                <span>Report has no recent_trades yet</span>
+              </div>
+              <div class="neutral">—</div>
             </div>
           `;
         }
       } catch (error) {
         console.error('Report load error:', error);
-
         document.getElementById('dailyUpdated').textContent = 'Failed to load report';
         document.getElementById('lastReportSync').textContent = 'Failed to load report';
         document.getElementById('footerUpdated').textContent = 'Report sync failed';
@@ -1059,10 +1064,7 @@
     }
 
     loadReport();
-
-    setInterval(() => {
-      loadReport();
-    }, 60000);
+    setInterval(loadReport, 60000);
   </script>
 </body>
 </html>
