@@ -1,70 +1,70 @@
 {
-  "updated_at": "2026-03-13T23:00:01.209921",
+  "updated_at": "2026-03-14T00:00:00.825427",
   "currency": "USD",
   "daily": {
     "amount": 0.0,
-    "date": "2026-03-13"
+    "date": "2026-03-14"
   },
   "weekly": {
-    "amount": 33720.0,
+    "amount": 38040.0,
     "from": "2026-03-09",
     "to": "2026-03-13"
   },
   "monthly": {
-    "amount": 47040.0,
+    "amount": 51360.0,
     "from": "2026-03-01",
-    "to": "2026-03-13"
+    "to": "2026-03-14"
   },
   "recent_trades": [
     {
-      "id": 57,
-      "date": "2026-03-11",
-      "strike": 6705,
+      "id": 63,
+      "date": "2026-03-13",
+      "strike": 6625,
       "type": "PUT",
-      "entry": 3.4,
-      "exit": 5.9,
+      "entry": 3.2,
+      "exit": 13.3,
       "qty": 1,
-      "profit": 250.0
+      "profit": 1010.0
     },
     {
-      "id": 58,
-      "date": "2026-03-11",
-      "strike": 6700,
+      "id": 64,
+      "date": "2026-03-13",
+      "strike": 6620,
       "type": "PUT",
-      "entry": 2.9,
-      "exit": 5.1,
+      "entry": 3.6,
+      "exit": 11.6,
       "qty": 1,
-      "profit": 220.0
+      "profit": 800.0
     },
     {
-      "id": 59,
-      "date": "2026-03-11",
-      "strike": 6730,
+      "id": 65,
+      "date": "2026-03-13",
+      "strike": 6605,
       "type": "PUT",
-      "entry": 2.9,
-      "exit": 5.2,
+      "entry": 3.6,
+      "exit": 7.7,
       "qty": 1,
-      "profit": 230.0
+      "profit": 410.0
     },
     {
-      "id": 60,
-      "date": "2026-03-11",
-      "strike": 6740,
+      "id": 66,
+      "date": "2026-03-13",
+      "strike": 6615,
       "type": "PUT",
-      "entry": 2.1,
-      "exit": 3.6,
+      "entry": 3.8,
+      "exit": 10.2,
       "qty": 1,
-      "profit": 150.0
+      "profit": 640.0
     },
     {
-      "id": 61,
-      "date": "2026-03-11",
-      "strike": 6755,
+      "id": 67,
+      "date": "2026-03-13",
+      "strike": 6610,
       "type": "PUT",
-      "entry": 1.5,
-      "exit": 0.0,
+      "entry": 3.3,
+      "exit": 6.8,
       "qty": 1,
-      "profit": -150.0
+      "profit": 350.0
     }
   ]
 }
