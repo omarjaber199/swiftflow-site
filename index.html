@@ -4,859 +4,629 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SwiftFlow | SPX Options</title>
-  <meta name="description" content="SwiftFlow SPX Options - منصة احترافية لمتابعة عقود SPX Options والنتائج والتحليل والسيولة." />
+  <meta
+    name="description"
+    content="SwiftFlow SPX Options - منصة احترافية لمتابعة عقود SPX Options والنتائج والسيولة ولوحة السوق."
+  />
 
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    :root{
-      --bg:#030712;
-      --bg2:#071120;
-      --card:#0b1220;
-      --card2:#0d1728;
-      --line:rgba(255,255,255,.08);
-      --line2:rgba(255,214,102,.14);
-      --text:#f7f8fb;
-      --muted:#b9c2d0;
-      --gold:#f1cf71;
-      --gold2:#e6bd58;
-      --green:#21e49b;
-      --red:#ff627d;
-      --blue:#4f8cff;
-      --chip:#131d30;
-      --shadow:0 18px 45px rgba(0,0,0,.35);
-      --radius:26px;
-      --radius2:20px;
-      --max:1180px;
+    :root {
+      --bg: #030712;
+      --bg2: #071120;
+      --card: #0b1220;
+      --card2: #0d1728;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-soft: rgba(255, 255, 255, 0.05);
+      --text: #f7f8fb;
+      --muted: #b9c2d0;
+      --gold: #f1cf71;
+      --gold2: #e6bd58;
+      --green: #21e49b;
+      --red: #ff627d;
+      --blue: #4f8cff;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      --radius: 26px;
+      --radius2: 20px;
+      --max: 1280px;
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      font-family:"Cairo","Inter",system-ui,sans-serif;
+    body {
+      font-family: "Cairo", "Inter", system-ui, sans-serif;
       background:
-        radial-gradient(circle at 50% 14%, rgba(241,207,113,.12), transparent 18%),
-        radial-gradient(circle at 20% 10%, rgba(38,74,255,.10), transparent 20%),
-        radial-gradient(circle at 80% 20%, rgba(31,228,155,.05), transparent 16%),
+        radial-gradient(circle at 50% 14%, rgba(241, 207, 113, 0.12), transparent 18%),
+        radial-gradient(circle at 20% 10%, rgba(38, 74, 255, 0.10), transparent 20%),
+        radial-gradient(circle at 80% 20%, rgba(31, 228, 155, 0.05), transparent 16%),
         linear-gradient(180deg, #02050d 0%, #040a14 18%, #040913 100%);
-      color:var(--text);
-      overflow-x:hidden;
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    a{
-      color:inherit;
-      text-decoration:none;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    img{
-      max-width:100%;
-      display:block;
+    .container {
+      width: min(calc(100% - 24px), var(--max));
+      margin-inline: auto;
     }
 
-    .container{
-      width:min(calc(100% - 24px), var(--max));
-      margin-inline:auto;
+    .section {
+      padding: 24px 0;
     }
 
-    .section{
-      padding:18px 0;
+    .card {
+      background: linear-gradient(180deg, rgba(12, 18, 31, 0.96), rgba(8, 14, 26, 0.96));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card{
-      background:linear-gradient(180deg, rgba(12,18,31,.96), rgba(8,14,26,.96));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
       background:
-        radial-gradient(circle at 50% 0%, rgba(241,207,113,.06), transparent 25%),
-        linear-gradient(90deg, rgba(68,95,169,.06), transparent 6%, transparent 94%, rgba(68,95,169,.06));
+        radial-gradient(circle at 50% 0%, rgba(241, 207, 113, 0.06), transparent 25%),
+        linear-gradient(
+          90deg,
+          rgba(68, 95, 169, 0.06),
+          transparent 6%,
+          transparent 94%,
+          rgba(68, 95, 169, 0.06)
+        );
     }
 
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:blur(12px);
-      background:rgba(3,8,18,.82);
-      border-bottom:1px solid rgba(255,255,255,.05);
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(3, 8, 18, 0.82);
+      border-bottom: 1px solid var(--line-soft);
     }
 
-    .nav{
-      min-height:88px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:14px 0;
+    .nav {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 0;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:800;
-      font-size:32px;
-      letter-spacing:-.5px;
-      line-height:1;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 32px;
+      letter-spacing: -0.5px;
+      line-height: 1;
     }
 
-    .brand-badge{
-      width:56px;
-      height:56px;
-      border-radius:18px;
-      background:linear-gradient(180deg, #f4d67b, #e0b752);
-      color:#121212;
-      display:grid;
-      place-items:center;
-      font-weight:800;
-      box-shadow:0 10px 28px rgba(241,207,113,.18);
-      flex:0 0 auto;
+    .brand-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #f4d67b, #e0b752);
+      color: #121212;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(241, 207, 113, 0.18);
+      flex: 0 0 auto;
+      font-family: "Inter", sans-serif;
     }
 
-    .brand-text{
-      direction:ltr;
-      font-family:"Inter","Cairo",sans-serif;
+    .brand-text {
+      direction: ltr;
+      font-family: "Inter", "Cairo", sans-serif;
     }
 
-    .nav-links{
-      display:flex;
-      gap:24px;
-      align-items:center;
-      flex-wrap:wrap;
-      font-size:15px;
-      color:#eceff5;
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 15px;
+      color: #eceff5;
     }
 
-    .nav-links a{
-      opacity:.88;
+    .nav-links a {
+      opacity: 0.88;
+      transition: 0.2s ease;
     }
 
-    .nav-links a:hover{
-      color:var(--gold);
+    .nav-links a:hover {
+      color: var(--gold);
     }
 
-    .ticker-wrap{
-      border-top:1px solid rgba(255,255,255,.05);
-      border-bottom:1px solid rgba(255,255,255,.05);
-      background:rgba(255,255,255,.015);
-      overflow:hidden;
+    .tv-ticker-wrap {
+      border-top: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      background: rgba(255, 255, 255, 0.015);
+      padding: 8px 0;
     }
 
-    .ticker{
-      display:flex;
-      gap:14px;
-      padding:12px 0;
-      overflow:auto;
-      scrollbar-width:none;
+    .tv-ticker {
+      border-radius: 20px;
+      overflow: hidden;
     }
 
-    .ticker::-webkit-scrollbar{
-      display:none;
+    .hero {
+      padding-top: 18px;
     }
 
-    .ticker-item{
-      min-width:170px;
-      padding:12px 16px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.03);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      white-space:nowrap;
-      font-family:"Inter","Cairo",sans-serif;
-      font-size:15px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
     }
 
-    .ticker-item strong{
-      color:var(--gold);
-      font-weight:700;
+    .hero-side {
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
     }
 
-    .down{
-      color:var(--red);
-      font-weight:700;
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
     }
 
-    .up{
-      color:var(--green);
-      font-weight:700;
+    .mini {
+      padding: 24px 18px;
+      min-height: 136px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
     }
 
-    .hero{
-      padding-top:18px;
+    .mini .label {
+      color: #d0d7e5;
+      margin-bottom: 10px;
+      font-size: 16px;
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:18px;
-      align-items:stretch;
+    .mini .value {
+      font-family: "Inter", "Cairo", sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      direction: ltr;
     }
 
-    .hero-main{
-      padding:28px;
-      min-height:520px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      text-align:right;
+    .snapshot-box {
+      padding: 20px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #061120, #071427);
+      border: 1px solid rgba(255, 255, 255, 0.07);
     }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      width:max-content;
-      max-width:100%;
-      margin-bottom:18px;
-      padding:12px 18px;
-      border-radius:999px;
-      background:rgba(241,207,113,.08);
-      border:1px solid rgba(241,207,113,.16);
-      color:var(--gold);
-      font-weight:700;
-      font-size:15px;
+    .snapshot-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 15px;
+      margin-bottom: 18px;
     }
 
-    .hero-title{
-      font-size:clamp(42px, 7vw, 76px);
-      line-height:1.12;
-      letter-spacing:-1.3px;
-      font-weight:800;
-      margin-bottom:16px;
+    .snapshot-head .live {
+      color: var(--green);
+      font-weight: 800;
+      font-family: "Inter", "Cairo", sans-serif;
     }
 
-    .hero-title .gold{
-      color:var(--gold);
-    }
-
-    .hero-text{
-      color:#d5dbea;
-      font-size:19px;
-      line-height:2;
-      max-width:780px;
-    }
-
-    .hero-note{
-      margin-top:22px;
-      font-size:18px;
-      color:var(--gold);
-      font-weight:700;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:24px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:64px;
-      padding:0 26px;
-      border-radius:20px;
-      font-size:18px;
-      font-weight:800;
-      transition:.2s ease;
-      border:1px solid transparent;
-      cursor:pointer;
-    }
-
-    .btn:hover{
-      transform:translateY(-1px);
-    }
-
-    .btn-gold{
-      background:linear-gradient(180deg, #f2d275, #e1b950);
-      color:#111;
-      box-shadow:0 10px 30px rgba(241,207,113,.18);
-    }
-
-    .btn-dark{
-      background:rgba(255,255,255,.03);
-      color:#fff;
-      border-color:rgba(255,255,255,.08);
-    }
-
-    .hero-side{
-      padding:22px;
-      display:grid;
-      gap:14px;
-      align-content:start;
-    }
-
-    .mini-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-    }
-
-    .mini{
-      padding:24px 18px;
-      min-height:136px;
-      border-radius:22px;
-      background:rgba(255,255,255,.025);
-      border:1px solid rgba(255,255,255,.06);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      text-align:center;
-    }
-
-    .mini .label{
-      color:#d0d7e5;
-      margin-bottom:10px;
-      font-size:16px;
-    }
-
-    .mini .value{
-      font-family:"Inter","Cairo",sans-serif;
-      font-size:28px;
-      font-weight:800;
-      direction:ltr;
-    }
-
-    .snapshot-box{
-      padding:20px;
-      border-radius:24px;
-      background:linear-gradient(180deg, #061120, #071427);
-      border:1px solid rgba(255,255,255,.07);
-    }
-
-    .snapshot-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      font-size:15px;
-      margin-bottom:18px;
-    }
-
-    .snapshot-head .live{
-      color:var(--green);
-      font-weight:800;
-      font-family:"Inter","Cairo",sans-serif;
-    }
-
-    .chart-graphic{
-      height:220px;
-      border-radius:24px;
-      border:1px solid rgba(255,255,255,.06);
+    .chart-graphic {
+      height: 220px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
       background:
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
         linear-gradient(180deg, #081527, #071423);
-      display:flex;
-      align-items:flex-end;
-      gap:14px;
-      padding:26px 26px 20px;
-      margin-bottom:16px;
-      overflow:hidden;
+      display: flex;
+      align-items: flex-end;
+      gap: 14px;
+      padding: 26px 26px 20px;
+      margin-bottom: 16px;
+      overflow: hidden;
     }
 
-    .bar{
-      width:26px;
-      border-radius:14px 14px 0 0;
-      background:linear-gradient(180deg, #29e39d, #187e64);
-      box-shadow:0 10px 24px rgba(33,228,155,.08);
+    .bar {
+      width: 26px;
+      border-radius: 14px 14px 0 0;
+      background: linear-gradient(180deg, #29e39d, #187e64);
+      box-shadow: 0 10px 24px rgba(33, 228, 155, 0.08);
     }
 
-    .bar.red{
-      background:linear-gradient(180deg, #ff7676, #9e2737);
+    .bar.red {
+      background: linear-gradient(180deg, #ff7676, #9e2737);
     }
 
-    .flow-list{
-      display:grid;
-      gap:12px;
+    .flow-list {
+      display: grid;
+      gap: 12px;
     }
 
-    .flow-item{
-      padding:15px 16px;
-      border-radius:18px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.06);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      font-size:17px;
+    .flow-item {
+      padding: 15px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 17px;
     }
 
-    .flow-item strong{
-      color:var(--gold);
-      min-width:72px;
-      text-align:right;
-      font-family:"Inter","Cairo",sans-serif;
+    .flow-item strong {
+      color: var(--gold);
+      min-width: 72px;
+      text-align: right;
+      font-family: "Inter", "Cairo", sans-serif;
     }
 
-    .section-title{
-      text-align:center;
-      font-size:52px;
-      font-weight:800;
-      margin-bottom:10px;
-      letter-spacing:-1px;
+    .hero-main {
+      padding: 28px;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: right;
     }
 
-    .section-desc{
-      text-align:center;
-      color:#d0d8e6;
-      font-size:20px;
-      line-height:2;
-      max-width:860px;
-      margin:0 auto 24px;
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: max-content;
+      max-width: 100%;
+      margin-bottom: 18px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(241, 207, 113, 0.08);
+      border: 1px solid rgba(241, 207, 113, 0.16);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 15px;
     }
 
-    .section-line{
-      width:84px;
-      height:6px;
-      border-radius:999px;
-      background:linear-gradient(90deg, var(--gold), #f0c65f);
-      margin:0 auto 26px;
+    .hero-title {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.12;
+      letter-spacing: -1.3px;
+      font-weight: 800;
+      margin-bottom: 16px;
     }
 
-    .results-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
+    .hero-title .gold {
+      color: var(--gold);
     }
 
-    .result-card{
-      padding:26px 22px;
-      text-align:center;
-      min-height:280px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:16px;
+    .hero-text {
+      color: #d5dbea;
+      font-size: 19px;
+      line-height: 2;
+      max-width: 780px;
     }
 
-    .result-chip{
-      width:max-content;
-      max-width:100%;
-      margin:0 auto;
-      padding:12px 20px;
-      border-radius:999px;
-      background:#10254d;
-      border:1px solid rgba(92,135,255,.18);
-      color:#d4e2ff;
-      font-family:"Inter","Cairo",sans-serif;
-      font-weight:700;
-      font-size:18px;
+    .hero-note {
+      margin-top: 22px;
+      font-size: 18px;
+      color: var(--gold);
+      font-weight: 700;
     }
 
-    .result-label{
-      color:#d7ddec;
-      font-size:22px;
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 24px;
     }
 
-    .result-value{
-      font-family:"Inter","Cairo",sans-serif;
-      font-size:60px;
-      font-weight:800;
-      line-height:1;
-      direction:ltr;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 64px;
+      padding: 0 26px;
+      border-radius: 20px;
+      font-size: 18px;
+      font-weight: 800;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
     }
 
-    .result-meta{
-      color:#c5cedf;
-      font-size:18px;
-      line-height:1.8;
+    .btn:hover {
+      transform: translateY(-1px);
     }
 
-    .positive{
-      color:var(--green);
+    .btn-gold {
+      background: linear-gradient(180deg, #f2d275, #e1b950);
+      color: #111;
+      box-shadow: 0 10px 30px rgba(241, 207, 113, 0.18);
     }
 
-    .negative{
-      color:var(--red);
+    .btn-dark {
+      background: rgba(255, 255, 255, 0.03);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.08);
     }
 
-    .neutral{
-      color:var(--gold);
+    .section-title {
+      text-align: center;
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -1px;
     }
 
-    .why-grid,
-    .feature-grid,
-    .steps-grid,
-    .testimonials-grid,
-    .news-grid{
-      display:grid;
-      gap:18px;
+    .section-desc {
+      text-align: center;
+      color: #d0d8e6;
+      font-size: 20px;
+      line-height: 2;
+      max-width: 860px;
+      margin: 0 auto 24px;
     }
 
-    .why-grid{
-      grid-template-columns:repeat(3,1fr);
+    .section-line {
+      width: 84px;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), #f0c65f);
+      margin: 0 auto 26px;
     }
 
-    .feature-grid{
-      grid-template-columns:repeat(3,1fr);
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .steps-grid{
-      grid-template-columns:repeat(3,1fr);
+    .result-card {
+      padding: 26px 22px;
+      text-align: center;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
     }
 
-    .testimonials-grid{
-      grid-template-columns:repeat(2,1fr);
+    .result-chip {
+      width: max-content;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: #10254d;
+      border: 1px solid rgba(92, 135, 255, 0.18);
+      color: #d4e2ff;
+      font-family: "Inter", "Cairo", sans-serif;
+      font-weight: 700;
+      font-size: 18px;
     }
 
-    .news-grid{
-      grid-template-columns:repeat(2,1fr);
+    .result-label {
+      color: #d7ddec;
+      font-size: 22px;
     }
 
-    .info-card{
-      padding:28px 24px;
-      min-height:250px;
-      text-align:center;
+    .result-value {
+      font-family: "Inter", "Cairo", sans-serif;
+      font-size: 60px;
+      font-weight: 800;
+      line-height: 1;
+      direction: ltr;
     }
 
-    .icon-box{
-      width:70px;
-      height:70px;
-      border-radius:22px;
-      margin:0 auto 18px;
-      display:grid;
-      place-items:center;
-      background:rgba(241,207,113,.08);
-      border:1px solid rgba(241,207,113,.12);
-      font-size:34px;
+    .result-meta {
+      color: #c5cedf;
+      font-size: 18px;
+      line-height: 1.8;
     }
 
-    .info-card h3{
-      font-size:28px;
-      margin-bottom:12px;
-      font-weight:800;
+    .positive { color: var(--green); }
+    .negative { color: var(--red); }
+    .neutral { color: var(--gold); }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
     }
 
-    .info-card p{
-      color:#d2daea;
-      font-size:19px;
-      line-height:2;
+    .market-card {
+      padding: 18px;
+      min-height: 420px;
     }
 
-    .step-number{
-      width:76px;
-      height:76px;
-      margin:0 auto 18px;
-      border-radius:50%;
-      background:linear-gradient(180deg, #f1d171, #ddb853);
-      color:#111;
-      display:grid;
-      place-items:center;
-      font-family:"Inter","Cairo",sans-serif;
-      font-weight:800;
-      font-size:34px;
-      box-shadow:0 10px 28px rgba(241,207,113,.16);
+    .market-card h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-weight: 800;
+      text-align: center;
     }
 
-    .testimonial{
-      padding:26px 24px;
-      min-height:290px;
+    .market-card p {
+      text-align: center;
+      color: #d3dbea;
+      font-size: 17px;
+      line-height: 1.9;
+      margin-bottom: 16px;
     }
 
-    .testimonial-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:16px;
+    .tv-box {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: #061120;
+      min-height: 340px;
     }
 
-    .avatar{
-      width:74px;
-      height:74px;
-      border-radius:50%;
-      background:linear-gradient(180deg, #eecd6f, #d4aa43);
-      color:#111;
-      display:grid;
-      place-items:center;
-      font-family:"Inter","Cairo",sans-serif;
-      font-weight:800;
-      font-size:34px;
-      flex:0 0 auto;
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
-    .testimonial-name{
-      font-size:30px;
-      font-weight:800;
+    .info-card {
+      padding: 28px 24px;
+      min-height: 250px;
+      text-align: center;
     }
 
-    .testimonial-role{
-      color:#c9d2e3;
-      font-size:18px;
+    .icon-box {
+      width: 70px;
+      height: 70px;
+      border-radius: 22px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(241, 207, 113, 0.08);
+      border: 1px solid rgba(241, 207, 113, 0.12);
+      font-size: 34px;
     }
 
-    .testimonial p{
-      color:#d7deec;
-      font-size:19px;
-      line-height:2;
-      margin:18px 0 14px;
+    .info-card h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      font-weight: 800;
     }
 
-    .stars{
-      color:var(--gold);
-      font-size:30px;
-      letter-spacing:4px;
+    .info-card p {
+      color: #d2daea;
+      font-size: 19px;
+      line-height: 2;
     }
 
-    .share-wrap{
-      display:flex;
-      justify-content:center;
-      margin-top:22px;
-    }
-
-    .share-btn{
-      min-width:260px;
-      min-height:76px;
-      background:linear-gradient(135deg, #2d62ff, #57a4ff);
-      color:#fff;
-      font-size:30px;
-      border-radius:22px;
-      box-shadow:0 12px 34px rgba(54,104,255,.26);
-    }
-
-    .impact-chip{
-      width:max-content;
-      margin:0 auto 20px;
-      padding:10px 18px;
-      border-radius:999px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.08);
-      color:var(--gold);
-      font-family:"Inter","Cairo",sans-serif;
-      font-size:16px;
-      font-weight:700;
-    }
-
-    .news-card{
-      padding:28px 24px;
-      min-height:420px;
-    }
-
-    .news-card h3{
-      text-align:center;
-      font-size:34px;
-      margin-bottom:16px;
-      font-weight:800;
-    }
-
-    .news-card p{
-      text-align:center;
-      color:#d3dbea;
-      font-size:18px;
-      line-height:2;
-      margin-bottom:18px;
-    }
-
-    .metric-list{
-      display:grid;
-      gap:14px;
-      margin-top:12px;
-    }
-
-    .metric{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:16px 18px;
-      border-radius:18px;
-      background:#071325;
-      border:1px solid rgba(255,255,255,.06);
-      font-size:21px;
-    }
-
-    .metric .name{
-      color:#dfe7f4;
-    }
-
-    .metric .value{
-      font-family:"Inter","Cairo",sans-serif;
-      font-weight:800;
-      direction:ltr;
-    }
-
-    .cta{
-      padding-bottom:40px;
-    }
-
-    .cta-card{
-      padding:34px 28px;
-      text-align:center;
-    }
-
-    .cta-title{
-      font-size:56px;
-      font-weight:800;
-      margin-bottom:12px;
-      letter-spacing:-1px;
-    }
-
-    .cta-text{
-      color:#d3dbea;
-      font-size:21px;
-      line-height:2;
-      max-width:860px;
-      margin:0 auto 24px;
-    }
-
-    .cta-actions{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:20px;
-    }
-
-    .live-note{
-      color:#b8c3d8;
-      font-size:18px;
-    }
-
-    .footer{
-      padding:0 0 28px;
-    }
-
-    .footer-card{
-      padding:18px 22px;
-      text-align:center;
-      color:#c5cede;
-      font-size:16px;
-    }
-
-    @media (max-width: 1100px){
+    @media (max-width: 1100px) {
       .hero-grid,
       .results-grid,
       .why-grid,
-      .feature-grid,
-      .steps-grid,
-      .testimonials-grid,
-      .news-grid{
-        grid-template-columns:1fr 1fr;
+      .market-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-main {
+        min-height: auto;
       }
     }
 
-    @media (max-width: 780px){
-      .nav{
-        flex-direction:column;
-        align-items:flex-start;
+    @media (max-width: 780px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .brand{
-        font-size:22px;
+      .brand {
+        font-size: 22px;
       }
 
-      .brand-badge{
-        width:48px;
-        height:48px;
-        border-radius:16px;
+      .brand-badge {
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
       }
 
-      .nav-links{
-        width:100%;
-        justify-content:space-between;
-        gap:10px 14px;
-        font-size:14px;
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px 14px;
+        font-size: 14px;
       }
 
       .hero-grid,
       .results-grid,
       .why-grid,
-      .feature-grid,
-      .steps-grid,
-      .testimonials-grid,
-      .news-grid,
-      .mini-grid{
-        grid-template-columns:1fr;
+      .market-grid,
+      .mini-grid {
+        grid-template-columns: 1fr;
       }
 
-      .hero-main{
-        min-height:auto;
-        padding:22px 18px;
+      .hero-main {
+        order: 1;
+        min-height: auto;
+        padding: 22px 18px;
       }
 
-      .hero-side{
-        padding:16px;
+      .hero-side {
+        order: 2;
+        padding: 16px;
       }
 
-      .hero-title{
-        font-size:34px;
+      .hero-title {
+        font-size: 34px;
       }
 
       .hero-text,
       .section-desc,
-      .info-card p,
-      .testimonial p,
-      .news-card p,
-      .cta-text{
-        font-size:17px;
+      .info-card p {
+        font-size: 17px;
       }
 
-      .section-title,
-      .cta-title{
-        font-size:30px;
+      .section-title {
+        font-size: 30px;
       }
 
-      .btn{
-        width:100%;
-        min-height:58px;
-        font-size:18px;
+      .btn {
+        width: 100%;
+        min-height: 58px;
+        font-size: 18px;
       }
 
-      .hero-actions{
-        flex-direction:column;
+      .hero-actions {
+        flex-direction: column;
       }
 
-      .result-value{
-        font-size:48px;
+      .result-value {
+        font-size: 48px;
       }
 
-      .share-btn{
-        width:100%;
-        min-width:0;
-        font-size:22px;
+      .chart-graphic {
+        height: 190px;
+        gap: 10px;
+        padding: 22px 18px 18px;
       }
 
-      .ticker-item{
-        min-width:150px;
-        font-size:14px;
-      }
-
-      .chart-graphic{
-        height:190px;
-        gap:10px;
-        padding:22px 18px 18px;
-      }
-
-      .bar{
-        width:20px;
+      .bar {
+        width: 20px;
       }
     }
   </style>
@@ -872,21 +642,37 @@
 
       <nav class="nav-links">
         <a href="#results">النتائج</a>
+        <a href="#market">لوحة السوق</a>
         <a href="#why">الميزات</a>
-        <a href="#testimonials">آراء المشتركين</a>
         <a href="#news">الأخبار المهمة</a>
       </nav>
     </div>
   </header>
 
-  <div class="ticker-wrap">
+  <div class="tv-ticker-wrap">
     <div class="container">
-      <div class="ticker">
-        <div class="ticker-item"><strong>NVIDIA</strong> <span>180.60</span> <span class="down">▼ -2.54</span></div>
-        <div class="ticker-item"><strong>Apple</strong> <span>250.35</span> <span class="down">▼ -5.41</span></div>
-        <div class="ticker-item"><strong>MSFT</strong> <span>417.20</span> <span class="up">▲ +1.18</span></div>
-        <div class="ticker-item"><strong>TSLA</strong> <span>202.11</span> <span class="down">▼ -1.09</span></div>
-        <div class="ticker-item"><strong>SPX</strong> <span>Live</span> <span class="up">● متابعة</span></div>
+      <div class="tv-ticker">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+            "symbols": [
+              { "proName": "FOREXCOM:SPXUSD", "title": "SPX" },
+              { "proName": "NASDAQ:NVDA", "title": "NVIDIA" },
+              { "proName": "NASDAQ:AAPL", "title": "Apple" },
+              { "proName": "NASDAQ:MSFT", "title": "MSFT" },
+              { "proName": "NASDAQ:TSLA", "title": "TSLA" },
+              { "proName": "CME_MINI:NQ1!", "title": "Nasdaq Futures" },
+              { "proName": "CME_MINI:ES1!", "title": "S&P Futures" }
+            ],
+            "showSymbolLogo": true,
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "colorTheme": "dark",
+            "locale": "ar_AE"
+          }
+          </script>
+        </div>
       </div>
     </div>
   </div>
@@ -894,25 +680,6 @@
   <main>
     <section class="section hero">
       <div class="container hero-grid">
-        <div class="card hero-main">
-          <div class="pill">SPX Options • Real-Time • Flow • AI</div>
-
-          <h1 class="hero-title">
-            منصة احترافية لمتابعة <span class="gold">عقود SPX Options</span>
-          </h1>
-
-          <p class="hero-text">
-            تعتمد SwiftFlow على تحليل تدفق السيولة (Flow)، وخوارزميات تداول متقدمة،
-            وأنظمة مدعومة بالذكاء الاصطناعي لرصد الفرص في السوق بدقة عالية.
-          </p>
-
-          <div class="hero-note">🚀 SwiftFlow — حيث تلتقي السيولة بالذكاء.</div>
-
-          <div class="hero-actions">
-            <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">الاشتراك عبر البوت</a>
-            <a class="btn btn-dark" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">خدمة العملاء</a>
-          </div>
-        </div>
 
         <div class="card hero-side">
           <div class="mini-grid">
@@ -941,18 +708,18 @@
             </div>
 
             <div class="chart-graphic">
-              <div class="bar" style="height:135px"></div>
-              <div class="bar" style="height:96px"></div>
-              <div class="bar" style="height:108px"></div>
-              <div class="bar red" style="height:68px"></div>
-              <div class="bar" style="height:112px"></div>
-              <div class="bar" style="height:84px"></div>
-              <div class="bar" style="height:95px"></div>
-              <div class="bar red" style="height:50px"></div>
-              <div class="bar" style="height:74px"></div>
-              <div class="bar" style="height:63px"></div>
-              <div class="bar red" style="height:39px"></div>
               <div class="bar" style="height:56px"></div>
+              <div class="bar red" style="height:40px"></div>
+              <div class="bar" style="height:66px"></div>
+              <div class="bar" style="height:78px"></div>
+              <div class="bar red" style="height:52px"></div>
+              <div class="bar" style="height:102px"></div>
+              <div class="bar" style="height:90px"></div>
+              <div class="bar" style="height:120px"></div>
+              <div class="bar red" style="height:72px"></div>
+              <div class="bar" style="height:118px"></div>
+              <div class="bar" style="height:104px"></div>
+              <div class="bar" style="height:146px"></div>
             </div>
 
             <div class="flow-list">
@@ -962,6 +729,27 @@
             </div>
           </div>
         </div>
+
+        <div class="card hero-main">
+          <div class="pill">SPX Options • Real-Time • Flow • AI</div>
+
+          <h1 class="hero-title">
+            منصة احترافية لمتابعة <span class="gold">عقود SPX Options</span>
+          </h1>
+
+          <p class="hero-text">
+            تعتمد SwiftFlow على تحليل تدفق السيولة (Flow)، وخوارزميات تداول متقدمة،
+            وأنظمة مدعومة بالذكاء الاصطناعي لرصد الفرص في السوق بدقة عالية.
+          </p>
+
+          <div class="hero-note">🚀 SwiftFlow — حيث تلتقي السيولة بالذكاء.</div>
+
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">الاشتراك عبر البوت</a>
+            <a class="btn btn-dark" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">خدمة العملاء</a>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -975,10 +763,10 @@
 
         <div class="results-grid">
           <div class="card result-card">
-            <div class="result-chip">Daily Result</div>
-            <div class="result-label">نتائج اليوم</div>
-            <div class="result-value positive" id="dailyAmount">+$0</div>
-            <div class="result-meta" id="dailyDate">—</div>
+            <div class="result-chip">Monthly Result</div>
+            <div class="result-label">نتائج الشهر</div>
+            <div class="result-value positive" id="monthlyAmount">+$0</div>
+            <div class="result-meta" id="monthlyDate">—</div>
           </div>
 
           <div class="card result-card">
@@ -989,10 +777,72 @@
           </div>
 
           <div class="card result-card">
-            <div class="result-chip">Monthly Result</div>
-            <div class="result-label">نتائج الشهر</div>
-            <div class="result-value neutral" id="monthlyAmount">+$0</div>
-            <div class="result-meta" id="monthlyDate">—</div>
+            <div class="result-chip">Daily Result</div>
+            <div class="result-label">نتائج اليوم</div>
+            <div class="result-value neutral" id="dailyAmount">+$0</div>
+            <div class="result-meta" id="dailyDate">—</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="market" class="section">
+      <div class="container">
+        <div class="section-line"></div>
+        <h2 class="section-title">لوحة السوق</h2>
+        <p class="section-desc">
+          شريط أسعار متحرك، خريطة حرارة للأسهم، وشارت مباشر لـ SPX.
+        </p>
+
+        <div class="market-grid">
+          <div class="card market-card">
+            <h3>Heatmap الأسهم</h3>
+            <p>خريطة حرارة مباشرة للأسهم الأمريكية والقطاعات.</p>
+            <div class="tv-box">
+              <div class="tradingview-widget-container" style="height:100%;width:100%">
+                <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+                {
+                  "dataSource": "SPX500",
+                  "blockSize": "market_cap_basic",
+                  "blockColor": "change",
+                  "grouping": "sector",
+                  "locale": "ar_AE",
+                  "symbolUrl": "",
+                  "colorTheme": "dark",
+                  "hasTopBar": false,
+                  "isDataSetEnabled": true,
+                  "isZoomEnabled": true,
+                  "hasSymbolTooltip": true,
+                  "width": "100%",
+                  "height": "100%"
+                }
+                </script>
+              </div>
+            </div>
+          </div>
+
+          <div class="card market-card">
+            <h3>شارت SPX</h3>
+            <p>شارت مباشر للمؤشر مع متابعة الحركة والزخم.</p>
+            <div class="tv-box">
+              <div class="tradingview-widget-container" style="height:100%;width:100%">
+                <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                {
+                  "autosize": true,
+                  "symbol": "FOREXCOM:SPXUSD",
+                  "interval": "15",
+                  "timezone": "Etc/UTC",
+                  "theme": "dark",
+                  "style": "1",
+                  "locale": "ar_AE",
+                  "allow_symbol_change": true,
+                  "support_host": "https://www.tradingview.com"
+                }
+                </script>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1027,183 +877,7 @@
         </div>
       </div>
     </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="feature-grid">
-          <div class="card info-card">
-            <div class="icon-box">📊</div>
-            <h3>تقارير واضحة</h3>
-            <p>تقارير يومية وأسبوعية مرتبة تعكس النتائج وتدعم الثقة بالمحتوى.</p>
-          </div>
-
-          <div class="card info-card">
-            <div class="icon-box">🎯</div>
-            <h3>تركيز متخصص</h3>
-            <p>مبني خصيصًا لمتابعة SPX Options بدل التشتت في عدة أسواق.</p>
-          </div>
-
-          <div class="card info-card">
-            <div class="icon-box">🚀</div>
-            <h3>دخول سريع</h3>
-            <p>واجهة بسيطة تنقلك مباشرة إلى البوت لإكمال الاشتراك والدخول للقناة الخاصة.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-line"></div>
-        <h2 class="section-title">الاشتراك بخطوات بسيطة</h2>
-        <p class="section-desc">
-          واجهة مباشرة تنقل الزائر من الموقع إلى البوت ثم إلى القناة الخاصة.
-        </p>
-
-        <div class="steps-grid">
-          <div class="card info-card">
-            <div class="step-number">1</div>
-            <h3>اضغط على الاشتراك</h3>
-            <p>ابدأ مباشرة من زر الاشتراك الموجود في الواجهة الرئيسية.</p>
-          </div>
-
-          <div class="card info-card">
-            <div class="step-number">2</div>
-            <h3>أكمل عبر البوت</h3>
-            <p>سيتم تحويلك إلى بوت الاشتراك الرسمي لإكمال الخطوات بسهولة.</p>
-          </div>
-
-          <div class="card info-card">
-            <div class="step-number">3</div>
-            <h3>ادخل القناة الخاصة</h3>
-            <p>بعد التفعيل تبدأ المتابعة داخل قناة SwiftFlow الخاصة مباشرة.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="testimonials" class="section">
-      <div class="container">
-        <div class="section-line"></div>
-        <h2 class="section-title">آراء المشتركين</h2>
-        <p class="section-desc">
-          شاركنا تجربتك مع SwiftFlow، وقد نعرض أفضل الآراء في الموقع.
-        </p>
-
-        <div class="testimonials-grid">
-          <div class="card testimonial">
-            <div class="testimonial-top">
-              <div>
-                <div class="testimonial-name">مشترك</div>
-                <div class="testimonial-role">عضو في القناة الخاصة</div>
-              </div>
-              <div class="avatar">A</div>
-            </div>
-            <p>التنبيهات واضحة والدخول مرتب، وأكثر شيء أعجبني هو سرعة المتابعة وقت الحركة.</p>
-            <div class="stars">★★★★★</div>
-          </div>
-
-          <div class="card testimonial">
-            <div class="testimonial-top">
-              <div>
-                <div class="testimonial-name">مشترك</div>
-                <div class="testimonial-role">SPX Options</div>
-              </div>
-              <div class="avatar">M</div>
-            </div>
-            <p>فيه احترافية في الطرح والتقارير، وطريقة عرض النتائج جميلة وتعطي ثقة قوية.</p>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-
-        <div class="share-wrap">
-          <a class="btn share-btn" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">⭐ شاركنا رأيك</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="news" class="section">
-      <div class="container">
-        <div class="section-line"></div>
-        <h2 class="section-title">الأخبار والبيانات المهمة</h2>
-        <p class="section-desc">
-          بيانات اقتصادية مؤثرة على السوق مثل الفائدة والبطالة والتضخم، مع السابق والحالي والمتوقع.
-        </p>
-
-        <div class="news-grid">
-          <div class="card news-card">
-            <div class="impact-chip">High Impact</div>
-            <h3>قرار الفائدة</h3>
-            <p>من أكثر الأخبار تأثيرًا على حركة السوق والتذبذب، خاصة على المؤشرات والعقود القصيرة.</p>
-            <div class="metric-list">
-              <div class="metric"><span class="name">السابق</span><span class="value">5.50%</span></div>
-              <div class="metric"><span class="name">الحالي</span><span class="value">--</span></div>
-              <div class="metric"><span class="name">المتوقع</span><span class="value">5.25%</span></div>
-            </div>
-          </div>
-
-          <div class="card news-card">
-            <div class="impact-chip">High Impact</div>
-            <h3>البطالة</h3>
-            <p>تؤثر على توقعات الاقتصاد، شهية المخاطرة، وحركة المؤشرات الرئيسية في السوق الأمريكي.</p>
-            <div class="metric-list">
-              <div class="metric"><span class="name">السابق</span><span class="value">4.0%</span></div>
-              <div class="metric"><span class="name">الحالي</span><span class="value">--</span></div>
-              <div class="metric"><span class="name">المتوقع</span><span class="value">4.1%</span></div>
-            </div>
-          </div>
-
-          <div class="card news-card">
-            <div class="impact-chip">High Impact</div>
-            <h3>CPI / التضخم</h3>
-            <p>من أهم البيانات المؤثرة لأنها تغير توقعات الفائدة وترسم نغمة السوق القادمة.</p>
-            <div class="metric-list">
-              <div class="metric"><span class="name">السابق</span><span class="value">3.1%</span></div>
-              <div class="metric"><span class="name">الحالي</span><span class="value">--</span></div>
-              <div class="metric"><span class="name">المتوقع</span><span class="value">3.2%</span></div>
-            </div>
-          </div>
-
-          <div class="card news-card">
-            <div class="impact-chip">High Impact</div>
-            <h3>PPI / المنتجين</h3>
-            <p>يقيس ضغوط الأسعار من جهة المنتجين ويؤثر على قراءة التضخم وزخم السوق.</p>
-            <div class="metric-list">
-              <div class="metric"><span class="name">السابق</span><span class="value">1.8%</span></div>
-              <div class="metric"><span class="name">الحالي</span><span class="value">--</span></div>
-              <div class="metric"><span class="name">المتوقع</span><span class="value">2.0%</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cta">
-      <div class="container">
-        <div class="card cta-card">
-          <h2 class="cta-title">ابدأ الآن مع SwiftFlow</h2>
-          <p class="cta-text">
-            اضغط على زر الاشتراك للانتقال مباشرة إلى البوت، أو استخدم زر خدمة العملاء للتواصل.
-          </p>
-
-          <div class="cta-actions">
-            <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">الاشتراك عبر البوت</a>
-            <a class="btn btn-dark" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">خدمة العملاء</a>
-          </div>
-
-          <div class="live-note">الأسعار في الشريط تتحدث تلقائيًا، والنتائج تُقرأ من <strong>report.json</strong></div>
-        </div>
-      </div>
-    </section>
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="card footer-card">
-        © 2026 SwiftFlow — SPX Options
-      </div>
-    </div>
-  </footer>
 
   <script>
     const REPORT_URL = 'https://swiftflow-site.vercel.app/report.json';
@@ -1241,7 +915,6 @@
         });
 
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
         const data = await res.json();
 
         const dailyAmount = document.getElementById('dailyAmount');
