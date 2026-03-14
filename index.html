@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SwiftFlow | SPX Options</title>
-  <meta
-    name="description"
-    content="SwiftFlow SPX Options - منصة احترافية لمتابعة عقود SPX Options والنتائج والسيولة ولوحة السوق."
-  />
+  <meta name="description" content="SwiftFlow SPX Options - منصة احترافية لمتابعة عقود SPX Options والنتائج والسيولة ولوحة السوق." />
 
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
@@ -15,10 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root{
@@ -37,7 +31,6 @@
       --blue:#4f8cff;
       --shadow:0 18px 45px rgba(0,0,0,.35);
       --radius:28px;
-      --radius2:20px;
       --max:1340px;
     }
 
@@ -73,7 +66,7 @@
     }
 
     .section{
-      padding:28px 0;
+      padding:30px 0;
     }
 
     .card{
@@ -133,8 +126,8 @@
       place-items:center;
       font-weight:800;
       box-shadow:0 10px 28px rgba(241,207,113,.18);
-      flex:0 0 auto;
       font-family:"Inter",sans-serif;
+      flex:0 0 auto;
     }
 
     .brand-text{
@@ -172,13 +165,98 @@
       overflow:hidden;
     }
 
-    .hero{
-      padding-top:18px;
+    .hero-main{
+      padding:44px 40px;
+      min-height:650px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      text-align:right;
     }
 
-    .hero-grid{
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      width:max-content;
+      max-width:100%;
+      margin-bottom:18px;
+      padding:12px 18px;
+      border-radius:999px;
+      background:rgba(241,207,113,.08);
+      border:1px solid rgba(241,207,113,.16);
+      color:var(--gold);
+      font-weight:700;
+      font-size:15px;
+    }
+
+    .hero-title{
+      font-size:clamp(48px, 7vw, 90px);
+      line-height:1.08;
+      letter-spacing:-1.8px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .hero-title .gold{
+      color:var(--gold);
+    }
+
+    .hero-text{
+      color:#d5dbea;
+      font-size:22px;
+      line-height:2;
+      max-width:980px;
+    }
+
+    .hero-note{
+      margin-top:22px;
+      font-size:24px;
+      color:var(--gold);
+      font-weight:800;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:64px;
+      padding:0 26px;
+      border-radius:20px;
+      font-size:18px;
+      font-weight:800;
+      transition:.2s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-gold{
+      background:linear-gradient(180deg, #f2d275, #e1b950);
+      color:#111;
+      box-shadow:0 10px 30px rgba(241,207,113,.18);
+    }
+
+    .btn-dark{
+      background:rgba(255,255,255,.03);
+      color:#fff;
+      border-color:rgba(255,255,255,.08);
+    }
+
+    .split-grid{
       display:grid;
-      grid-template-columns:0.88fr 1.12fr;
+      grid-template-columns:.92fr 1.08fr;
       gap:18px;
       align-items:stretch;
     }
@@ -188,15 +266,6 @@
       display:grid;
       gap:14px;
       align-content:start;
-    }
-
-    .hero-main{
-      padding:34px 32px;
-      min-height:620px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      text-align:right;
     }
 
     .mini-grid{
@@ -230,86 +299,6 @@
       direction:ltr;
     }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      width:max-content;
-      max-width:100%;
-      margin-bottom:18px;
-      padding:12px 18px;
-      border-radius:999px;
-      background:rgba(241,207,113,.08);
-      border:1px solid rgba(241,207,113,.16);
-      color:var(--gold);
-      font-weight:700;
-      font-size:15px;
-    }
-
-    .hero-title{
-      font-size:clamp(44px, 7vw, 82px);
-      line-height:1.08;
-      letter-spacing:-1.5px;
-      font-weight:800;
-      margin-bottom:18px;
-    }
-
-    .hero-title .gold{
-      color:var(--gold);
-    }
-
-    .hero-text{
-      color:#d5dbea;
-      font-size:20px;
-      line-height:2;
-      max-width:780px;
-    }
-
-    .hero-note{
-      margin-top:22px;
-      font-size:20px;
-      color:var(--gold);
-      font-weight:700;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:26px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:64px;
-      padding:0 26px;
-      border-radius:20px;
-      font-size:18px;
-      font-weight:800;
-      transition:.2s ease;
-      border:1px solid transparent;
-      cursor:pointer;
-    }
-
-    .btn:hover{
-      transform:translateY(-1px);
-    }
-
-    .btn-gold{
-      background:linear-gradient(180deg, #f2d275, #e1b950);
-      color:#111;
-      box-shadow:0 10px 30px rgba(241,207,113,.18);
-    }
-
-    .btn-dark{
-      background:rgba(255,255,255,.03);
-      color:#fff;
-      border-color:rgba(255,255,255,.08);
-    }
-
     .snapshot-box{
       padding:20px;
       border-radius:24px;
@@ -319,7 +308,7 @@
 
     .snapshot-title{
       text-align:right;
-      font-size:30px;
+      font-size:34px;
       font-weight:800;
       margin-bottom:14px;
       color:#f5f7fb;
@@ -402,7 +391,7 @@
       color:#d0d8e6;
       font-size:20px;
       line-height:2;
-      max-width:860px;
+      max-width:900px;
       margin:0 auto 24px;
     }
 
@@ -507,45 +496,21 @@
       background:#061120;
     }
 
-    .tv-box.heatmap{
-      height:520px;
-    }
-
+    .tv-box.heatmap,
     .tv-box.chart{
       height:520px;
     }
 
-    .news-list{
-      display:grid;
-      gap:12px;
-    }
-
-    .news-item{
-      padding:16px 18px;
-      border-radius:18px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.06);
-    }
-
-    .news-item strong{
-      display:block;
-      font-size:18px;
-      margin-bottom:6px;
-      color:#f5f7fb;
-    }
-
-    .news-item span{
-      color:#c8d2e4;
-      font-size:15px;
-      line-height:1.8;
-    }
-
-    .impact-grid{
+    .impact-grid,
+    .news-list,
+    .feature-grid{
       display:grid;
       gap:14px;
     }
 
-    .impact-card{
+    .impact-card,
+    .news-item,
+    .feature-card{
       padding:22px;
       border-radius:22px;
       background:rgba(255,255,255,.03);
@@ -565,23 +530,32 @@
       margin-bottom:14px;
     }
 
-    .impact-card h4{
+    .impact-card h4,
+    .feature-card h3{
       font-size:28px;
       margin-bottom:10px;
       font-weight:800;
     }
 
-    .impact-card p{
+    .impact-card p,
+    .news-item span,
+    .feature-card p{
       color:#d2daea;
       font-size:17px;
       line-height:1.9;
-      margin-bottom:14px;
-      text-align:right;
+    }
+
+    .news-item strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:8px;
+      color:#f5f7fb;
     }
 
     .metric-list{
       display:grid;
       gap:10px;
+      margin-top:14px;
     }
 
     .metric{
@@ -606,16 +580,13 @@
       direction:ltr;
     }
 
-    .why-grid{
-      display:grid;
+    .feature-grid{
       grid-template-columns:repeat(3,1fr);
-      gap:18px;
     }
 
-    .info-card{
-      padding:28px 24px;
-      min-height:250px;
+    .feature-card{
       text-align:center;
+      min-height:240px;
     }
 
     .icon-box{
@@ -630,23 +601,46 @@
       font-size:34px;
     }
 
-    .info-card h3{
-      font-size:28px;
-      margin-bottom:12px;
-      font-weight:800;
+    .closing-card{
+      padding:38px 32px;
+      text-align:center;
     }
 
-    .info-card p{
+    .closing-title{
+      font-size:56px;
+      font-weight:800;
+      margin-bottom:14px;
+      letter-spacing:-1px;
+    }
+
+    .closing-text{
       color:#d2daea;
-      font-size:19px;
+      font-size:21px;
       line-height:2;
+      max-width:980px;
+      margin:0 auto 24px;
+    }
+
+    .closing-note{
+      color:var(--gold);
+      font-size:24px;
+      font-weight:800;
+      margin-top:10px;
+    }
+
+    .closing-actions{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:24px;
     }
 
     @media (max-width: 1200px){
-      .hero-grid,
+      .split-grid,
       .market-grid,
       .results-grid,
-      .why-grid{
+      .feature-grid{
         grid-template-columns:1fr 1fr;
       }
     }
@@ -674,37 +668,37 @@
         font-size:14px;
       }
 
-      .hero-grid,
+      .split-grid,
       .market-grid,
       .results-grid,
-      .why-grid,
+      .feature-grid,
       .mini-grid{
         grid-template-columns:1fr;
       }
 
       .hero-main{
-        order:1;
         min-height:auto;
-        padding:22px 18px;
+        padding:26px 18px;
       }
 
       .hero-side{
-        order:2;
         padding:16px;
       }
 
       .hero-title{
-        font-size:36px;
+        font-size:38px;
       }
 
       .hero-text,
       .section-desc,
-      .info-card p,
-      .impact-card p{
+      .impact-card p,
+      .feature-card p,
+      .closing-text{
         font-size:17px;
       }
 
-      .section-title{
+      .section-title,
+      .closing-title{
         font-size:32px;
       }
 
@@ -714,7 +708,8 @@
         font-size:18px;
       }
 
-      .hero-actions{
+      .hero-actions,
+      .closing-actions{
         flex-direction:column;
       }
 
@@ -789,9 +784,33 @@
   </div>
 
   <main>
-    <section class="section hero">
-      <div class="container hero-grid">
+    <section class="section">
+      <div class="container">
+        <div class="card hero-main">
+          <div class="pill">SPX Options • Real-Time • Flow • AI</div>
 
+          <h1 class="hero-title">
+            منصة احترافية لمتابعة <span class="gold">عقود SPX Options</span>
+          </h1>
+
+          <p class="hero-text">
+            تعتمد SwiftFlow على تحليل تدفق السيولة (Flow)، وخوارزميات تداول متقدمة،
+            وأنظمة مدعومة بالذكاء الاصطناعي لرصد الفرص في السوق بدقة عالية،
+            مع واجهة قوية مصممة لتكون من أقوى تجارب التداول بالعالم العربي.
+          </p>
+
+          <div class="hero-note">🚀 SwiftFlow — حيث تلتقي السيولة بالذكاء.</div>
+
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">الاشتراك عبر البوت</a>
+            <a class="btn btn-dark" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">خدمة العملاء</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split-grid">
         <div class="card hero-side">
           <div class="mini-grid">
             <div class="mini">
@@ -842,27 +861,51 @@
           </div>
         </div>
 
-        <div class="card hero-main">
-          <div class="pill">SPX Options • Real-Time • Flow • AI</div>
-
-          <h1 class="hero-title">
-            منصة احترافية لمتابعة <span class="gold">عقود SPX Options</span>
-          </h1>
-
-          <p class="hero-text">
-            تعتمد SwiftFlow على تحليل تدفق السيولة (Flow)، وخوارزميات تداول متقدمة،
-            وأنظمة مدعومة بالذكاء الاصطناعي لرصد الفرص في السوق بدقة عالية،
-            مع واجهة قوية مصممة لتكون من أقوى تجارب التداول بالعالم العربي.
+        <div class="card" style="padding:30px;">
+          <div class="section-line"></div>
+          <h2 class="section-title" style="font-size:44px;">ليش يختارون SwiftFlow؟</h2>
+          <p class="section-desc" style="margin-bottom:10px;">
+            منصة مبنية لتوصيل الفرص والتحليلات للمشتركين بشكل احترافي وواضح.
           </p>
 
-          <div class="hero-note">🚀 SwiftFlow — حيث تلتقي السيولة بالذكاء.</div>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="icon-box">⚡</div>
+              <h3>تنبيهات مباشرة</h3>
+              <p>تنبيهات لحظية لعقود SPX Options عند ظهور الفرص وحركة السيولة.</p>
+            </div>
 
-          <div class="hero-actions">
-            <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">الاشتراك عبر البوت</a>
-            <a class="btn btn-dark" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">خدمة العملاء</a>
+            <div class="feature-card">
+              <div class="icon-box">💧</div>
+              <h3>تحليل Flow</h3>
+              <p>تعتمد SwiftFlow على تحليل تدفق السيولة وقراءة زخم الحركة بدقة أعلى.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon-box">🧠</div>
+              <h3>مدعوم بالذكاء الاصطناعي</h3>
+              <p>أنظمة تحليل وخوارزميات متقدمة لدعم القرار ورصد أفضل الفرص المحتملة.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon-box">🚀</div>
+              <h3>دخول سريع</h3>
+              <p>انتقال مباشر من الموقع إلى البوت ثم إلى القناة الخاصة بسهولة وسرعة.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon-box">🎯</div>
+              <h3>تركيز متخصص</h3>
+              <p>منصة مركزة على SPX Options بدل التشتت بين عدة أسواق وأدوات.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon-box">📊</div>
+              <h3>تقارير واضحة</h3>
+              <p>نتائج يومية وأسبوعية وشهرية مرتبة تعكس الأداء بشكل احترافي.</p>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -944,23 +987,23 @@
               <div class="news-list">
                 <div class="news-item">
                   <strong>NVIDIA / الذكاء الاصطناعي</strong>
-                  <span>تابع نتائج الشركات المرتبطة بالرقائق، الذكاء الاصطناعي، والتوجيهات المستقبلية لأنها تحرك السوق بقوة.</span>
+                  <span>تابع نتائج الشركات المرتبطة بالرقائق والذكاء الاصطناعي لأنها من أقوى المحركات لقطاع التقنية.</span>
                 </div>
                 <div class="news-item">
                   <strong>Apple / المنتجات والمبيعات</strong>
-                  <span>أي أخبار تخص المبيعات، التوقعات، أو الإطلاقات الجديدة قد تؤثر على المزاج العام للأسهم القيادية.</span>
+                  <span>أخبار المبيعات، الإطلاقات الجديدة، والتوجيهات تؤثر سريعًا على الأسهم القيادية والمزاج العام.</span>
                 </div>
                 <div class="news-item">
                   <strong>Microsoft / السحابة و AI</strong>
-                  <span>أخبار Azure والذكاء الاصطناعي وشراكات المؤسسات تعتبر من أبرز المحركات لقطاع التقنية.</span>
+                  <span>أخبار Azure والذكاء الاصطناعي وشراكات المؤسسات تعتبر من أبرز المحركات للسوق التقني.</span>
                 </div>
                 <div class="news-item">
-                  <strong>Amazon / التجارة والسحابة</strong>
-                  <span>نتائج AWS والمبيعات الاستهلاكية والتوجيهات التشغيلية تعطي قراءة مهمة لقوة السوق.</span>
+                  <strong>Amazon / AWS والتجارة</strong>
+                  <span>نتائج AWS والمبيعات التشغيلية والتوقعات تعطي قراءة قوية لاتجاه السوق.</span>
                 </div>
                 <div class="news-item">
                   <strong>Tesla / التسليمات والإنتاج</strong>
-                  <span>أرقام التسليمات، الأسعار، وأخبار المصانع تؤثر سريعًا على حركة السهم والقطاع المرتبط به.</span>
+                  <span>أخبار التسليمات والأسعار والطاقة والمصانع تؤثر بشكل مباشر على حركة السهم والقطاع.</span>
                 </div>
               </div>
             </div>
@@ -1038,31 +1081,21 @@
       </div>
     </section>
 
-    <section id="why" class="section">
+    <section class="section">
       <div class="container">
-        <div class="section-line"></div>
-        <h2 class="section-title">ليش يختارون SwiftFlow؟</h2>
-        <p class="section-desc">
-          منصة مبنية لتوصيل الفرص والتحليلات للمشتركين بشكل احترافي وواضح.
-        </p>
+        <div class="card closing-card">
+          <div class="section-line"></div>
+          <h2 class="closing-title">ابدأ الآن مع SwiftFlow</h2>
+          <p class="closing-text">
+            إذا كنت تبحث عن واجهة قوية، عرض احترافي، متابعة مباشرة، وطرح يليق بالمشترك،
+            فـ SwiftFlow صُممت لتكون تجربة متكاملة تجمع بين السرعة، الوضوح، والسيولة،
+            وتقدم لك بيئة تداول عربية احترافية حول عقود SPX Options.
+          </p>
+          <div class="closing-note">🚀 SwiftFlow — حيث تلتقي السيولة بالذكاء.</div>
 
-        <div class="why-grid">
-          <div class="card info-card">
-            <div class="icon-box">⚡</div>
-            <h3>تنبيهات مباشرة</h3>
-            <p>تنبيهات لحظية لعقود SPX Options عند ظهور الفرص وحركة السيولة.</p>
-          </div>
-
-          <div class="card info-card">
-            <div class="icon-box">💧</div>
-            <h3>تحليل Flow</h3>
-            <p>تعتمد SwiftFlow على تحليل تدفق السيولة وقراءة زخم الحركة بدقة أعلى.</p>
-          </div>
-
-          <div class="card info-card">
-            <div class="icon-box">🧠</div>
-            <h3>مدعوم بالذكاء الاصطناعي</h3>
-            <p>أنظمة تحليل وخوارزميات متقدمة لدعم القرار ورصد أفضل الفرص المحتملة.</p>
+          <div class="closing-actions">
+            <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">الاشتراك عبر البوت</a>
+            <a class="btn btn-dark" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">خدمة العملاء</a>
           </div>
         </div>
       </div>
