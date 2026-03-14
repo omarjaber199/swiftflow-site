@@ -717,8 +717,8 @@
     @media (max-width: 780px){
       .nav{
         flex-direction:column;
-        align-items:flex-start;
-      }
+        align-items:flex-start;    
+  }
 
       .brand{
         font-size:22px;
@@ -803,7 +803,198 @@
         height:420px;
       }
     }
-  </style>
+   /* ===== SwiftFlow visual fix ===== */
+.hero-main{
+  min-height: 500px !important;
+  padding: 30px 28px !important;
+}
+
+.hero-title{
+  font-size: clamp(34px, 4.8vw, 60px) !important;
+  line-height: 1.12 !important;
+  margin-bottom: 12px !important;
+}
+
+.hero-text{
+  font-size: 16px !important;
+  line-height: 1.85 !important;
+  max-width: 820px !important;
+}
+
+.hero-note{
+  font-size: 18px !important;
+  margin-top: 14px !important;
+}
+
+.section-title{
+  font-size: 34px !important;
+}
+
+.section-desc{
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+}
+
+.feature-grid{
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 12px !important;
+}
+
+.feature-card{
+  min-height: 185px !important;
+  padding: 18px !important;
+}
+
+.feature-card h3{
+  font-size: 20px !important;
+  margin-bottom: 6px !important;
+}
+
+.feature-card p{
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+}
+
+.icon-box{
+  width: 54px !important;
+  height: 54px !important;
+  font-size: 24px !important;
+  margin-bottom: 12px !important;
+}
+
+.intel-grid{
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 12px !important;
+  margin-top: 14px !important;
+}
+
+.intel-card{
+  min-height: 160px !important;
+  padding: 16px !important;
+}
+
+.intel-card h4{
+  font-size: 18px !important;
+  margin-bottom: 6px !important;
+}
+
+.intel-card p{
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+}
+
+.intel-chip{
+  font-size: 11px !important;
+  padding: 6px 10px !important;
+}
+
+.intel-value{
+  font-size: 18px !important;
+}
+
+.market-grid{
+  grid-template-columns: 1fr 1fr !important;
+  align-items: start !important;
+}
+
+.market-card{
+  min-height: auto !important;
+}
+
+.market-card h3{
+  font-size: 22px !important;
+}
+
+.market-card p{
+  font-size: 14px !important;
+}
+
+.impact-card,
+.news-item{
+  padding: 16px !important;
+}
+
+.impact-card h4{
+  font-size: 20px !important;
+}
+
+.impact-card p,
+.news-item span{
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+}
+
+.metric{
+  padding: 12px 14px !important;
+  font-size: 14px !important;
+}
+
+.result-card{
+  min-height: 220px !important;
+  padding: 20px 18px !important;
+}
+
+.result-label{
+  font-size: 18px !important;
+}
+
+.result-value{
+  font-size: 42px !important;
+}
+
+.result-meta{
+  font-size: 14px !important;
+}
+
+.closing-title{
+  font-size: 36px !important;
+}
+
+.closing-text{
+  font-size: 16px !important;
+  line-height: 1.8 !important;
+}
+
+.closing-note{
+  font-size: 18px !important;
+}
+
+@media (min-width: 1100px){
+  .split-grid{
+    grid-template-columns: 0.9fr 1.1fr !important;
+    align-items: start !important;
+  }
+
+  .hero-side{
+    gap: 12px !important;
+  }
+
+  .snapshot-box{
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 780px){
+  .hero-title{
+    font-size: 32px !important;
+  }
+
+  .hero-text,
+  .section-desc,
+  .impact-card p,
+  .feature-card p,
+  .closing-text,
+  .intel-card p{
+    font-size: 14px !important;
+  }
+
+  .feature-grid,
+  .intel-grid,
+  .market-grid{
+    grid-template-columns: 1fr !important;
+  }
+}
+   </style>
 </head>
 <body>
 
