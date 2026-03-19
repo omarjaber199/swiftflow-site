@@ -1,70 +1,70 @@
 {
-  "updated_at": "2026-03-19T22:00:01.384743",
+  "updated_at": "2026-03-19T23:00:01.549416",
   "currency": "USD",
   "daily": {
-    "amount": 0.0,
+    "amount": 6660.0,
     "date": "2026-03-19"
   },
   "weekly": {
-    "amount": 4480.0,
+    "amount": 11140.0,
     "from": "2026-03-16",
     "to": "2026-03-20"
   },
   "monthly": {
-    "amount": 55840.0,
+    "amount": 62500.0,
     "from": "2026-03-01",
     "to": "2026-03-19"
   },
   "recent_trades": [
     {
-      "id": 75,
-      "date": "2026-03-16",
-      "strike": 6740,
-      "type": "CALL",
-      "entry": 2.5,
-      "exit": 4.5,
+      "id": 93,
+      "date": "2026-03-19",
+      "strike": 6555,
+      "type": "PUT",
+      "entry": 3.3,
+      "exit": 8.7,
       "qty": 1,
-      "profit": 200.0
+      "profit": 540.0
     },
     {
-      "id": 76,
-      "date": "2026-03-16",
-      "strike": 6720,
-      "type": "CALL",
-      "entry": 2.5,
-      "exit": 13.6,
+      "id": 94,
+      "date": "2026-03-19",
+      "strike": 6550,
+      "type": "PUT",
+      "entry": 3.1,
+      "exit": 7.0,
       "qty": 1,
-      "profit": 1110.0
+      "profit": 390.0
     },
     {
-      "id": 86,
-      "date": "2026-03-18",
-      "strike": 6705,
+      "id": 95,
+      "date": "2026-03-19",
+      "strike": 6615,
       "type": "CALL",
       "entry": 3.3,
-      "exit": 3.7,
+      "exit": 26.2,
       "qty": 1,
-      "profit": 40.0
+      "profit": 2290.0
     },
     {
-      "id": 87,
-      "date": "2026-03-18",
+      "id": 96,
+      "date": "2026-03-19",
       "strike": 6620,
-      "type": "PUT",
-      "entry": 2.7,
-      "exit": 3.8,
+      "type": "CALL",
+      "entry": 2.4,
+      "exit": 22.7,
       "qty": 1,
-      "profit": 110.0
+      "profit": 2030.0
     },
     {
-      "id": 88,
-      "date": "2026-03-18",
-      "strike": 6640,
-      "type": "PUT",
-      "entry": 3.4,
-      "exit": 18.0,
+      "id": 97,
+      "date": "2026-03-19",
+      "strike": 6630,
+      "type": "CALL",
+      "entry": 2.5,
+      "exit": 16.6,
       "qty": 1,
-      "profit": 1460.0
+      "profit": 1410.0
     }
   ]
 }
