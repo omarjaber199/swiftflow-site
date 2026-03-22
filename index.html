@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SwiftFlow | SPX Options</title>
-  <meta name="description" content="SwiftFlow | SPX Options - صفحة بيع واشتراك احترافية لمتابعة SPX Options مع نتائج محدثة وتقارير منظمة واشتراك مباشر عبر البوت." />
-
+  <meta name="description" content="SwiftFlow | SPX Options - منظومة احترافية لمتابعة SPX Options بوضوح أعلى وتنظيم أدق." />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -18,6 +17,7 @@
     :root{
       --bg:#02050d;
       --card:#0b1220;
+      --card2:#0d1728;
       --line:rgba(255,255,255,.08);
       --line-soft:rgba(255,255,255,.05);
       --text:#f7f8fb;
@@ -26,6 +26,7 @@
       --gold2:#e6bd58;
       --green:#21e49b;
       --red:#ff627d;
+      --blue:#4f8cff;
       --shadow:0 18px 45px rgba(0,0,0,.35);
       --radius:28px;
       --max:1320px;
@@ -33,7 +34,6 @@
 
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-
     body{
       font-family:"Cairo","Inter",system-ui,sans-serif;
       background:
@@ -45,14 +45,9 @@
       overflow-x:hidden;
     }
 
-    a{color:inherit;text-decoration:none}
-
-    .container{
-      width:min(calc(100% - 24px), var(--max));
-      margin-inline:auto;
-    }
-
-    .section{padding:42px 0}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(calc(100% - 24px), var(--max));margin-inline:auto}
+    .section{padding:44px 0}
 
     .card{
       background:linear-gradient(180deg, rgba(12,18,31,.96), rgba(8,14,26,.96));
@@ -78,7 +73,7 @@
       top:0;
       z-index:100;
       backdrop-filter:blur(12px);
-      background:rgba(3,8,18,.9);
+      background:rgba(3,8,18,.90);
       border-bottom:1px solid var(--line-soft);
     }
 
@@ -143,7 +138,7 @@
 
     .hero{
       padding:34px 30px;
-      min-height:600px;
+      min-height:620px;
       display:grid;
       grid-template-columns:1.1fr .9fr;
       gap:22px;
@@ -320,7 +315,8 @@
     .benefits-grid,
     .why-grid,
     .faq-grid,
-    .links-grid{
+    .links-grid,
+    .results-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:18px;
@@ -330,7 +326,8 @@
     .benefit-card,
     .why-card,
     .faq-card,
-    .link-card{
+    .link-card,
+    .result-card{
       padding:22px 18px;
       border-radius:24px;
       background:rgba(255,255,255,.03);
@@ -367,7 +364,8 @@
     .benefit-card h3,
     .why-card h3,
     .faq-card h3,
-    .link-card h3{
+    .link-card h3,
+    .result-card h3{
       font-size:22px;
       margin-bottom:8px;
       font-weight:800;
@@ -377,26 +375,20 @@
     .benefit-card p,
     .why-card p,
     .faq-card p,
-    .link-card p{
+    .link-card p,
+    .result-card p{
       color:#d2daea;
       font-size:15px;
       line-height:1.85;
     }
 
-    .results-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
     .result-card{
-      padding:22px 18px;
       text-align:center;
-      min-height:220px;
+      min-height:230px;
       display:flex;
       flex-direction:column;
       justify-content:center;
-      gap:12px;
+      gap:10px;
     }
 
     .result-chip{
@@ -432,11 +424,17 @@
       line-height:1.8;
     }
 
+    .result-empty{
+      color:#d4dbea;
+      font-size:15px;
+      line-height:1.9;
+      max-width:320px;
+      margin:0 auto;
+    }
+
     .positive{color:var(--green)}
     .negative{color:var(--red)}
     .neutral{color:var(--gold)}
-
-    .faq-card{min-height:170px}
 
     .disclaimer{
       padding:26px 22px;
@@ -598,7 +596,7 @@
         <a href="#faq">الأسئلة</a>
       </nav>
 
-      <a class="nav-cta" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">اشترك الآن</a>
+      <a class="nav-cta" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">ابدأ الاشتراك</a>
     </div>
   </header>
 
@@ -609,25 +607,24 @@
           <div class="pill">SwiftFlow | SPX Options</div>
 
           <h1 class="hero-title">
-            متابعة أوضح وتجربة أقوى في <span class="gold">SPX Options</span>
+            منظومة احترافية لمتابعة <span class="gold">SPX Options</span> بوضوح أعلى وتنظيم أدق
           </h1>
 
           <p class="hero-text">
-            إذا كنت تبحث عن طريقة أكثر وضوحًا واحترافية لمتابعة SPX Options،
-            فـ SwiftFlow تمنحك نتائج منظمة، تقارير محدثة، وصول مباشر، وتجربة مرتبة
-            تختصر عليك التشتت وتوصلك للخدمة بشكل أسرع.
+            نتائج محدثة، تقارير منظمة، دخول مباشر عبر البوت، وتجربة مصممة لتختصر التشتت
+            وتسهّل الوصول إلى الخدمة بشكل أسرع وأوضح.
           </p>
 
           <div class="hero-points">
-            <div>• نتائج يومية وأسبوعية وشهرية محدثة</div>
-            <div>• صفحة واضحة تشرح لك الخدمة قبل الاشتراك</div>
+            <div>• نتائج يومية وأسبوعية وشهرية بصورة أوضح</div>
+            <div>• تجربة منظمة تقلل التشتت وتسهّل اتخاذ القرار</div>
             <div>• انتقال مباشر إلى البوت ثم إلى القناة الخاصة</div>
           </div>
 
           <div class="hero-actions">
-            <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">اشترك الآن</a>
-            <a class="btn btn-dark" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">الدخول للبوت</a>
-            <a class="btn btn-dark" href="https://t.me/SwiftFlow_Support" target="_blank" rel="noopener noreferrer">الدعم</a>
+            <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">ابدأ الاشتراك</a>
+            <a class="btn btn-dark" href="#results">شاهد النتائج</a>
+            <a class="btn btn-dark" href="https://t.me/SwiftFlow_Support" target="_blank" rel="noopener noreferrer">تواصل مع الدعم</a>
           </div>
         </div>
 
@@ -635,27 +632,27 @@
           <div class="side-box">
             <h3>وش تقدم لك SwiftFlow؟</h3>
             <p>
-              تجربة منظمة ومركزة على SPX Options، تجمع بين الوضوح، سرعة الوصول،
-              عرض النتائج، وتنفيذ الاشتراك بشكل مرتب عبر البوت.
+              تجربة أوضح وأكثر تنظيمًا لمتابعة SPX Options، مع نتائج محدثة،
+              وصول مباشر، وتقارير تساعدك على قراءة الأداء بشكل أسرع.
             </p>
           </div>
 
           <div class="mini-grid">
             <div class="mini">
-              <div class="label">التخصص</div>
-              <div class="value">SPX Options</div>
+              <div class="label">الميزة</div>
+              <div class="value">تركيز على SPX Options</div>
             </div>
             <div class="mini">
-              <div class="label">الدخول</div>
-              <div class="value">عبر البوت</div>
+              <div class="label">الميزة</div>
+              <div class="value">وصول مباشر ومنظم</div>
             </div>
             <div class="mini">
-              <div class="label">النتائج</div>
-              <div class="value">محدثة وواضحة</div>
+              <div class="label">الميزة</div>
+              <div class="value">نتائج محدثة بوضوح</div>
             </div>
             <div class="mini">
-              <div class="label">الدعم</div>
-              <div class="value">@SwiftFlow_Support</div>
+              <div class="label">الميزة</div>
+              <div class="value">دعم واضح وسريع</div>
             </div>
           </div>
         </div>
@@ -667,26 +664,26 @@
         <div class="section-line"></div>
         <h2 class="section-title">كيف تعمل</h2>
         <p class="section-desc">
-          كل شيء مرتب بشكل بسيط: تقرأ الخدمة، تفهمها، تشترك، ثم تدخل للمتابعة.
+          مسار واضح يشرح لك الخدمة ثم ينقلك إلى الاشتراك ثم إلى المتابعة.
         </p>
 
         <div class="steps-grid">
           <div class="card step-card">
             <div class="step-num">1</div>
-            <h3>تعرف على الخدمة</h3>
-            <p>الموقع يشرح لك بوضوح ما الذي تحصل عليه وكيف تعمل الخدمة قبل أي خطوة.</p>
+            <h3>افهم الخدمة</h3>
+            <p>تعرّف على ما الذي تحصل عليه وكيف تعمل المنظومة.</p>
           </div>
 
           <div class="card step-card">
             <div class="step-num">2</div>
-            <h3>تشترك بسهولة</h3>
-            <p>من خلال زر الاشتراك تنتقل مباشرة إلى البوت لإكمال الاشتراك بشكل منظم.</p>
+            <h3>ابدأ الاشتراك</h3>
+            <p>انتقل مباشرة إلى البوت لإكمال الاشتراك بخطوات واضحة.</p>
           </div>
 
           <div class="card step-card">
             <div class="step-num">3</div>
-            <h3>تبدأ المتابعة</h3>
-            <p>بعد التفعيل تصل إلى القناة والخدمة بشكل واضح ومرتب وسريع.</p>
+            <h3>ابدأ المتابعة</h3>
+            <p>بعد التفعيل تصل إلى القناة والخدمة بشكل منظم وسريع.</p>
           </div>
         </div>
       </div>
@@ -697,44 +694,44 @@
         <div class="section-line"></div>
         <h2 class="section-title">ماذا يحصل المشترك</h2>
         <p class="section-desc">
-          كل ما تحتاجه لفهم الخدمة والدخول إليها بشكل أوضح داخل منظومة SwiftFlow.
+          كل ما يحتاجه المشترك لفهم الخدمة والدخول إليها بوضوح أعلى.
         </p>
 
         <div class="benefits-grid">
           <div class="card benefit-card">
             <div class="icon-box">📊</div>
             <h3>نتائج محدثة</h3>
-            <p>عرض يومي وأسبوعي وشهري منظم يعطيك صورة أوضح عن الأداء.</p>
+            <p>عرض يومي وأسبوعي وشهري بصورة أوضح.</p>
           </div>
 
           <div class="card benefit-card">
             <div class="icon-box">🤖</div>
-            <h3>تنفيذ عبر البوت</h3>
-            <p>الاشتراك والإدارة والدخول يتمون من خلال البوت بشكل مباشر ومنظم.</p>
+            <h3>اشتراك منظم عبر البوت</h3>
+            <p>التفعيل، الإدارة، والدخول في مسار واحد مباشر.</p>
           </div>
 
           <div class="card benefit-card">
             <div class="icon-box">🎯</div>
             <h3>تركيز متخصص</h3>
-            <p>SwiftFlow مركزة على SPX Options بدل التشتت بين أسواق كثيرة وأدوات متعددة.</p>
+            <p>متابعة موجهة لـ SPX Options بدل التشتت بين عدة أسواق.</p>
           </div>
 
           <div class="card benefit-card">
-            <div class="icon-box">⚡</div>
-            <h3>شرح يقنع</h3>
-            <p>الموقع يشرح الخدمة بشكل واضح بدل تكرار نفس الشرح في كل مكان.</p>
+            <div class="icon-box">🗂️</div>
+            <h3>تقارير مرتبة</h3>
+            <p>عرض منظم يساعدك على قراءة الأداء بسرعة.</p>
           </div>
 
           <div class="card benefit-card">
             <div class="icon-box">🛟</div>
             <h3>دعم مباشر</h3>
-            <p>الوصول إلى الدعم يتم بشكل واضح عبر <strong>@SwiftFlow_Support</strong>.</p>
+            <p>تواصل واضح وسريع عند الحاجة.</p>
           </div>
 
           <div class="card benefit-card">
-            <div class="icon-box">📁</div>
-            <h3>تقارير منظمة</h3>
-            <p>عرض مباشر للنتائج الحالية بدون تكرار وتشتيت داخل الصفحة.</p>
+            <div class="icon-box">⚡</div>
+            <h3>تجربة أوضح</h3>
+            <p>كل شيء مصمم ليكون مختصرًا وواضحًا وسهل الوصول.</p>
           </div>
         </div>
       </div>
@@ -745,29 +742,50 @@
         <div class="section-line"></div>
         <h2 class="section-title">النتائج</h2>
         <p class="section-desc">
-          عرض مباشر وواضح للنتائج الحالية، بشكل مرتب وسريع الفهم للزائر.
+          عرض مباشر وواضح لآخر النتائج المنشورة، مع تاريخ التحديث وعدد الصفقات.
         </p>
 
         <div class="results-grid">
           <div class="card result-card">
-            <div class="result-chip">Monthly Result</div>
-            <div class="result-label">نتائج الشهر</div>
-            <div class="result-value positive" id="monthlyAmount">+$0</div>
-            <div class="result-meta" id="monthlyDate">—</div>
+            <div class="result-chip">آخر نتيجة منشورة</div>
+            <div class="result-label">نتائج اليوم</div>
+            <div class="result-value neutral" id="dailyAmount">سيتم التحديث</div>
+            <div class="result-meta" id="dailyMeta">سيتم عرض النتائج المحدثة هنا عند توفر آخر تقرير</div>
           </div>
 
           <div class="card result-card">
             <div class="result-chip">Weekly Result</div>
             <div class="result-label">نتائج الأسبوع</div>
-            <div class="result-value positive" id="weeklyAmount">+$0</div>
-            <div class="result-meta" id="weeklyDate">—</div>
+            <div class="result-value neutral" id="weeklyAmount">سيتم التحديث</div>
+            <div class="result-meta" id="weeklyMeta">سيتم عرض النتائج المحدثة هنا عند توفر آخر تقرير</div>
           </div>
 
           <div class="card result-card">
-            <div class="result-chip">Daily Result</div>
-            <div class="result-label">نتائج اليوم</div>
-            <div class="result-value neutral" id="dailyAmount">+$0</div>
-            <div class="result-meta" id="dailyDate">—</div>
+            <div class="result-chip">Monthly Result</div>
+            <div class="result-label">نتائج الشهر</div>
+            <div class="result-value neutral" id="monthlyAmount">سيتم التحديث</div>
+            <div class="result-meta" id="monthlyMeta">سيتم عرض النتائج المحدثة هنا عند توفر آخر تقرير</div>
+          </div>
+
+          <div class="card result-card">
+            <div class="result-chip">Last Month</div>
+            <div class="result-label">نتائج الشهر الماضي</div>
+            <div class="result-value neutral" id="lastMonthAmount">سيتم التحديث</div>
+            <div class="result-meta" id="lastMonthMeta">سيتم عرض النتائج المحدثة هنا عند توفر آخر تقرير</div>
+          </div>
+
+          <div class="card result-card">
+            <div class="result-chip">Trades</div>
+            <div class="result-label">عدد صفقات اليوم</div>
+            <div class="result-value neutral" id="dailyTrades">—</div>
+            <div class="result-meta" id="dailyTradesMeta">عدد الصفقات المغلقة في آخر تحديث</div>
+          </div>
+
+          <div class="card result-card">
+            <div class="result-chip">Last Month Trades</div>
+            <div class="result-label">عدد صفقات الشهر الماضي</div>
+            <div class="result-value neutral" id="lastMonthTrades">—</div>
+            <div class="result-meta" id="lastMonthTradesMeta">عدد الصفقات المحفوظة للشهر السابق</div>
           </div>
         </div>
       </div>
@@ -778,26 +796,44 @@
         <div class="section-line"></div>
         <h2 class="section-title">لماذا SwiftFlow</h2>
         <p class="section-desc">
-          لأن الزائر يحتاج صفحة تقنعه وتشرح له وتسهّل عليه قرار الاشتراك.
+          لأن الزائر لا يبحث فقط عن اسم أو واجهة، بل عن وضوح، تنظيم، وثقة أعلى.
         </p>
 
         <div class="why-grid">
           <div class="card why-card">
-            <div class="icon-box">💡</div>
-            <h3>تشرح لك بوضوح</h3>
-            <p>بدل تكرار نفس الشرح في كل مكان، الموقع يشرح الخدمة بشكل مرتب وواضح.</p>
+            <div class="icon-box">🎯</div>
+            <h3>تركيز متخصص على SPX Options</h3>
+            <p>خدمة موجهة إلى SPX Options بدل التشتت بين أسواق متعددة.</p>
+          </div>
+
+          <div class="card why-card">
+            <div class="icon-box">📈</div>
+            <h3>نتائج وتقارير أوضح</h3>
+            <p>عرض منظم للنتائج يعطي صورة أسرع وأوضح عن الأداء.</p>
+          </div>
+
+          <div class="card why-card">
+            <div class="icon-box">🤖</div>
+            <h3>اشتراك منظم عبر البوت</h3>
+            <p>الاشتراك والإدارة والدخول في مسار واحد مباشر وواضح.</p>
+          </div>
+
+          <div class="card why-card">
+            <div class="icon-box">⚡</div>
+            <h3>وصول سريع ودعم مباشر</h3>
+            <p>تواصل واضح وسريع مع الدعم عند الحاجة دون ضياع.</p>
           </div>
 
           <div class="card why-card">
             <div class="icon-box">🧭</div>
-            <h3>مسار تحويل صحيح</h3>
-            <p>تويتر يجذب، الموقع يشرح ويقنع، البوت ينفذ، والقناة تسلّم الخدمة.</p>
+            <h3>تجربة احترافية تقلل التشتت</h3>
+            <p>كل شيء مبني ليكون مختصرًا، واضحًا، وسهل الوصول.</p>
           </div>
 
           <div class="card why-card">
             <div class="icon-box">🏆</div>
             <h3>صورة أقوى للبراند</h3>
-            <p>وجود صفحة بيع منظمة يرفع الثقة ويعطي SwiftFlow صورة أكثر احترافية.</p>
+            <p>واجهة منظمة تعطي انطباعًا أعلى بالثقة والاحترافية.</p>
           </div>
         </div>
       </div>
@@ -808,38 +844,38 @@
         <div class="section-line"></div>
         <h2 class="section-title">الأسئلة الشائعة</h2>
         <p class="section-desc">
-          أهم ما يحتاج الزائر معرفته قبل الاشتراك.
+          أهم الأسئلة التي يحتاج الزائر معرفتها قبل الاشتراك.
         </p>
 
         <div class="faq-grid">
           <div class="card faq-card">
             <h3>كيف أشترك؟</h3>
-            <p>من خلال زر "اشترك الآن" وسيتم تحويلك مباشرة إلى البوت لإكمال الخطوات.</p>
+            <p>من خلال زر "ابدأ الاشتراك" وسيتم تحويلك مباشرة إلى البوت لإكمال الخطوات.</p>
+          </div>
+
+          <div class="card faq-card">
+            <h3>ماذا يحدث بعد الاشتراك؟</h3>
+            <p>بعد إكمال الخطوات يتم التفعيل ثم الوصول إلى القناة والخدمة بشكل منظم.</p>
+          </div>
+
+          <div class="card faq-card">
+            <h3>كيف يتم التفعيل؟</h3>
+            <p>يتم التفعيل عبر منظومة الاشتراك المرتبطة بالبوت بشكل واضح ومباشر.</p>
           </div>
 
           <div class="card faq-card">
             <h3>كيف أصل للدعم؟</h3>
-            <p>من خلال رابط الدعم المباشر: <strong>@SwiftFlow_Support</strong></p>
+            <p>من خلال الحساب الرسمي للدعم: <strong>@SwiftFlow_Support</strong></p>
+          </div>
+
+          <div class="card faq-card">
+            <h3>هل هذه الخدمة مناسبة للمبتدئ؟</h3>
+            <p>الخدمة أوضح وأكثر ترتيبًا، لكنها تبقى مرتبطة بفهم المستخدم للمخاطر وطبيعة السوق.</p>
           </div>
 
           <div class="card faq-card">
             <h3>هل النتائج محدثة؟</h3>
-            <p>نعم، النتائج تُسحب تلقائيًا من التقرير الحالي داخل الموقع.</p>
-          </div>
-
-          <div class="card faq-card">
-            <h3>لمن هذه الخدمة؟</h3>
-            <p>للشخص الذي يريد تجربة أوضح وأكثر ترتيبًا في متابعة SPX Options.</p>
-          </div>
-
-          <div class="card faq-card">
-            <h3>أين تصل الخدمة؟</h3>
-            <p>بعد التفعيل، تبدأ المتابعة من خلال القناة الخاصة المرتبطة بالاشتراك.</p>
-          </div>
-
-          <div class="card faq-card">
-            <h3>هل الموقع يشرح فقط؟</h3>
-            <p>الموقع يشرح ويقنع ويوجهك، أما تنفيذ الاشتراك والإدارة فيتم عبر البوت.</p>
+            <p>نعم، يتم عرض آخر نتائج منشورة عند تحديث التقرير الحالي.</p>
           </div>
         </div>
       </div>
@@ -861,30 +897,30 @@
         <div class="section-line"></div>
         <h2 class="section-title">الدخول والاشتراك والتواصل</h2>
         <p class="section-desc">
-          كل الروابط الأساسية في مكان واحد لتسهيل الدخول والاشتراك والتواصل.
+          كل رابط هنا له وظيفة واضحة ومختلفة لتسهيل الحركة داخل الموقع.
         </p>
 
         <div class="links-grid">
           <div class="card link-card">
             <div>
-              <h3>الاشتراك الآن</h3>
-              <p>ابدأ الدخول إلى الخدمة من خلال البوت بشكل مباشر وسريع.</p>
+              <h3>ابدأ الاشتراك</h3>
+              <p>انتقل مباشرة إلى البوت لإكمال الاشتراك بشكل واضح ومنظم.</p>
             </div>
-            <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">اشترك الآن</a>
+            <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">ابدأ الاشتراك</a>
           </div>
 
           <div class="card link-card">
             <div>
-              <h3>دخول البوت</h3>
-              <p>الانتقال المباشر إلى البوت لإكمال الاشتراك والإدارة.</p>
+              <h3>شاهد النتائج</h3>
+              <p>انتقل مباشرة إلى قسم النتائج للاطلاع على آخر الأرقام والتحديثات.</p>
             </div>
-            <a class="btn btn-dark" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">دخول البوت</a>
+            <a class="btn btn-dark" href="#results">شاهد النتائج</a>
           </div>
 
           <div class="card link-card">
             <div>
-              <h3>الدعم والتواصل</h3>
-              <p>تواصل مباشرة مع خدمة العملاء عبر الحساب الرسمي للدعم.</p>
+              <h3>الدعم</h3>
+              <p>تواصل مع خدمة العملاء من خلال الحساب الرسمي للدعم.</p>
             </div>
             <a class="btn btn-dark" href="https://t.me/SwiftFlow_Support" target="_blank" rel="noopener noreferrer">الدعم</a>
           </div>
@@ -896,14 +932,14 @@
       <div class="container card closing">
         <h2>ابدأ الآن مع SwiftFlow</h2>
         <p>
-          إذا كنت تبحث عن تجربة أوضح، عرض أقوى، وتنظيم احترافي في متابعة SPX Options،
-          فـ SwiftFlow صُممت لتمنحك وضوحًا أعلى ووصولًا أسرع وتجربة أكثر ترتيبًا.
+          إذا كنت تبحث عن تجربة أوضح، تنظيم أقوى، ووصول أسرع في متابعة SPX Options،
+          فـ SwiftFlow صُممت لتمنحك مسارًا مرتبًا من الشرح إلى الاشتراك إلى المتابعة.
         </p>
-        <div class="closing-note">🚀 SwiftFlow — حيث تلتقي السيوله بالذكاء</div>
+        <div class="closing-note">SwiftFlow — حيث تلتقي السيولة بالوضوح والانضباط</div>
 
         <div class="closing-actions">
-          <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">اشترك الآن</a>
-          <a class="btn btn-dark" href="https://t.me/SwiftFlow_Support" target="_blank" rel="noopener noreferrer">الدعم</a>
+          <a class="btn btn-gold" href="https://t.me/subomarbot" target="_blank" rel="noopener noreferrer">ابدأ الاشتراك</a>
+          <a class="btn btn-dark" href="https://t.me/SwiftFlow_Support" target="_blank" rel="noopener noreferrer">تواصل مع الدعم</a>
         </div>
       </div>
     </section>
@@ -918,7 +954,8 @@
     }
 
     function formatMoney(num) {
-      const value = Number(num || 0);
+      const value = Number(num);
+      if (Number.isNaN(value)) return 'سيتم التحديث';
       const sign = value >= 0 ? '+' : '-';
       return `${sign}$${Math.abs(value).toLocaleString('en-US', {
         minimumFractionDigits: 0,
@@ -928,10 +965,18 @@
 
     function setColor(el, value) {
       el.classList.remove('positive', 'negative', 'neutral');
-      const n = Number(value || 0);
+      const n = Number(value);
+      if (Number.isNaN(n)) {
+        el.classList.add('neutral');
+        return;
+      }
       if (n > 0) el.classList.add('positive');
       else if (n < 0) el.classList.add('negative');
       else el.classList.add('neutral');
+    }
+
+    function hasValidNumber(value) {
+      return value !== null && value !== undefined && value !== '' && !Number.isNaN(Number(value));
     }
 
     async function loadReport() {
@@ -950,27 +995,79 @@
         const dailyAmount = document.getElementById('dailyAmount');
         const weeklyAmount = document.getElementById('weeklyAmount');
         const monthlyAmount = document.getElementById('monthlyAmount');
+        const lastMonthAmount = document.getElementById('lastMonthAmount');
+        const dailyTrades = document.getElementById('dailyTrades');
+        const lastMonthTrades = document.getElementById('lastMonthTrades');
 
-        const dailyVal = Number(data?.daily?.amount || 0);
-        const weeklyVal = Number(data?.weekly?.amount || 0);
-        const monthlyVal = Number(data?.monthly?.amount || 0);
+        const dailyMeta = document.getElementById('dailyMeta');
+        const weeklyMeta = document.getElementById('weeklyMeta');
+        const monthlyMeta = document.getElementById('monthlyMeta');
+        const lastMonthMeta = document.getElementById('lastMonthMeta');
+        const dailyTradesMeta = document.getElementById('dailyTradesMeta');
+        const lastMonthTradesMeta = document.getElementById('lastMonthTradesMeta');
 
-        dailyAmount.textContent = formatMoney(dailyVal);
-        weeklyAmount.textContent = formatMoney(weeklyVal);
-        monthlyAmount.textContent = formatMoney(monthlyVal);
+        const publishedAt = safeText(data?.published_at, 'غير متوفر');
 
-        setColor(dailyAmount, dailyVal);
-        setColor(weeklyAmount, weeklyVal);
-        setColor(monthlyAmount, monthlyVal);
+        if (hasValidNumber(data?.daily?.amount)) {
+          dailyAmount.textContent = formatMoney(data.daily.amount);
+          setColor(dailyAmount, data.daily.amount);
+          dailyMeta.textContent = `آخر تحديث: ${publishedAt} | عدد الصفقات: ${safeText(data?.daily?.trades_count, '—')}`;
+        } else {
+          dailyAmount.textContent = 'سيتم التحديث';
+          dailyAmount.className = 'result-value neutral';
+          dailyMeta.textContent = 'سيتم عرض النتائج المحدثة هنا عند توفر آخر تقرير';
+        }
 
-        document.getElementById('dailyDate').textContent =
-          `التاريخ ${safeText(data?.daily?.date)}`;
+        if (hasValidNumber(data?.weekly?.amount)) {
+          weeklyAmount.textContent = formatMoney(data.weekly.amount);
+          setColor(weeklyAmount, data.weekly.amount);
+          weeklyMeta.textContent = `من ${safeText(data?.weekly?.from)} إلى ${safeText(data?.weekly?.to)} | عدد الصفقات: ${safeText(data?.weekly?.trades_count, '—')}`;
+        } else {
+          weeklyAmount.textContent = 'سيتم التحديث';
+          weeklyAmount.className = 'result-value neutral';
+          weeklyMeta.textContent = 'سيتم عرض النتائج المحدثة هنا عند توفر آخر تقرير';
+        }
 
-        document.getElementById('weeklyDate').textContent =
-          `من ${safeText(data?.weekly?.from)} إلى ${safeText(data?.weekly?.to)}`;
+        if (hasValidNumber(data?.monthly?.amount)) {
+          monthlyAmount.textContent = formatMoney(data.monthly.amount);
+          setColor(monthlyAmount, data.monthly.amount);
+          monthlyMeta.textContent = `شهر ${safeText(data?.monthly?.month, '—')} | عدد الصفقات: ${safeText(data?.monthly?.trades_count, '—')}`;
+        } else {
+          monthlyAmount.textContent = 'سيتم التحديث';
+          monthlyAmount.className = 'result-value neutral';
+          monthlyMeta.textContent = 'سيتم عرض النتائج المحدثة هنا عند توفر آخر تقرير';
+        }
 
-        document.getElementById('monthlyDate').textContent =
-          `من ${safeText(data?.monthly?.from)} إلى ${safeText(data?.monthly?.to)}`;
+        if (hasValidNumber(data?.last_month?.amount)) {
+          lastMonthAmount.textContent = formatMoney(data.last_month.amount);
+          setColor(lastMonthAmount, data.last_month.amount);
+          lastMonthMeta.textContent = `الشهر الماضي: ${safeText(data?.last_month?.month, '—')} | عدد الصفقات: ${safeText(data?.last_month?.trades_count, '—')}`;
+        } else {
+          lastMonthAmount.textContent = 'سيتم التحديث';
+          lastMonthAmount.className = 'result-value neutral';
+          lastMonthMeta.textContent = 'سيتم عرض نتائج الشهر الماضي عند توفرها';
+        }
+
+        if (hasValidNumber(data?.daily?.trades_count)) {
+          dailyTrades.textContent = safeText(data.daily.trades_count);
+          dailyTrades.className = 'result-value positive';
+          dailyTradesMeta.textContent = `آخر تحديث: ${publishedAt}`;
+        } else {
+          dailyTrades.textContent = '—';
+          dailyTrades.className = 'result-value neutral';
+          dailyTradesMeta.textContent = 'عدد الصفقات يظهر بعد التحديث';
+        }
+
+        if (hasValidNumber(data?.last_month?.trades_count)) {
+          lastMonthTrades.textContent = safeText(data.last_month.trades_count);
+          lastMonthTrades.className = 'result-value positive';
+          lastMonthTradesMeta.textContent = `عن شهر ${safeText(data?.last_month?.month, '—')}`;
+        } else {
+          lastMonthTrades.textContent = '—';
+          lastMonthTrades.className = 'result-value neutral';
+          lastMonthTradesMeta.textContent = 'عدد الصفقات للشهر الماضي يظهر عند توفره';
+        }
+
       } catch (err) {
         console.error('report load failed', err);
       }
