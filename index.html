@@ -996,6 +996,10 @@
       return hasValidNumber(data?.daily?.amount) && Number(data?.daily?.trades_count || 0) > 0 && safeText(data?.daily?.date, '') !== '';
     }
 
+    function hasDailyData(data) {
+      return hasValidNumber(data?.daily?.amount) && Number(data?.daily?.trades_count || 0) > 0 && safeText(data?.daily?.date, '') !== '';
+    }
+
     async function loadReport() {
       try {
         const res = await fetch(`${REPORT_URL}?t=${Date.now()}`, {
