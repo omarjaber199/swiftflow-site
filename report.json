@@ -1,25 +1,25 @@
 {
-  "published_at": "2026-10-04 01:40 AM",
+  "published_at": "2026-03-23 01:40 AM",
   "daily": {
     "label": "آخر نتيجة منشورة",
-    "date": "2026-10-04",
+    "date": "2026-03-23",
     "amount": 420,
     "trades_count": 3
   },
   "weekly": {
-    "from": "2026-09-28",
-    "to": "2026-10-04",
-    "amount": 38040,
-    "trades_count": 17
+    "from": "2026-03-16",
+    "to": "2026-03-20",
+    "amount": 27180,
+    "trades_count": 22
   },
   "monthly": {
-    "month": "2026-10",
-    "amount": 51360,
-    "trades_count": 26
+    "month": "2026-03",
+    "amount": 78540,
+    "trades_count": 74
   },
   "last_month": {
-    "month": "2026-09",
-    "amount": 44210,
-    "trades_count": 21
+    "month": "2026-02",
+    "amount": 51360,
+    "trades_count": 26
   }
 }
