@@ -1,10 +1,10 @@
 {
   "published_at": "2026-03-23 01:40 AM",
   "daily": {
-    "label": "آخر نتيجة منشورة",
-    "date": "2026-03-23",
-    "amount": 420,
-    "trades_count": 3
+    "label": "لا يوجد تحديث لليوم",
+    "date": "",
+    "amount": null,
+    "trades_count": 0
   },
   "weekly": {
     "from": "2026-03-16",
