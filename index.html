@@ -1049,7 +1049,7 @@
         } else {
           dailyAmount.textContent = 'بانتظار التحديث';
           dailyAmount.className = 'result-value neutral';
-          dailyMeta.textContent = 'لا يوجد تحديث لليوم حتى الآن';
+          dailyMeta.textContent = `تاريخ اليوم: ${new Date().toISOString().slice(0,10)} | لا يوجد تحديث لليوم حتى الآن`;
         }
 
         if (hasValidNumber(data?.weekly?.amount)) {
@@ -1059,7 +1059,7 @@
         } else {
           weeklyAmount.textContent = 'سيتم التحديث';
           weeklyAmount.className = 'result-value neutral';
-          weeklyMeta.textContent = 'سيتم عرض النتائج المحدثة هنا عند توفر آخر تقرير';
+          weeklyMeta.textContent = `الأسبوع الحالي: ${safeText(data?.weekly?.from, '—')} إلى ${safeText(data?.weekly?.to, '—')} | سيتم عرض النتائج المحدثة هنا عند توفر آخر تقرير`;
         }
 
         if (hasValidNumber(data?.monthly?.amount)) {
