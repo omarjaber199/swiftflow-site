@@ -1,25 +1,70 @@
 {
-  "published_at": "2026-03-23 01:40 AM",
+  "updated_at": "2026-03-23T03:00:00.725298",
+  "currency": "USD",
   "daily": {
-    "label": "لا يوجد تحديث لليوم",
-    "date": "",
-    "amount": null,
-    "trades_count": 0
+    "amount": 0.0,
+    "date": "2026-03-23"
   },
   "weekly": {
-    "from": "2026-03-16",
-    "to": "2026-03-20",
-    "amount": 27180,
-    "trades_count": 22
+    "amount": 0.0,
+    "from": "2026-03-23",
+    "to": "2026-03-27"
   },
   "monthly": {
-    "month": "2026-03",
-    "amount": 78540,
-    "trades_count": 74
+    "amount": 79230.0,
+    "from": "2026-03-01",
+    "to": "2026-03-23"
   },
-  "last_month": {
-    "month": "2026-02",
-    "amount": 51360,
-    "trades_count": 26
-  }
+  "recent_trades": [
+    {
+      "id": 101,
+      "date": "2026-03-20",
+      "strike": 6500,
+      "type": "PUT",
+      "entry": 3.0,
+      "exit": 28.0,
+      "qty": 1,
+      "profit": 2500.0
+    },
+    {
+      "id": 102,
+      "date": "2026-03-20",
+      "strike": 6495,
+      "type": "PUT",
+      "entry": 2.5,
+      "exit": 23.6,
+      "qty": 1,
+      "profit": 2110.0
+    },
+    {
+      "id": 103,
+      "date": "2026-03-20",
+      "strike": 6515,
+      "type": "PUT",
+      "entry": 3.7,
+      "exit": 42.0,
+      "qty": 1,
+      "profit": 3830.0
+    },
+    {
+      "id": 104,
+      "date": "2026-03-20",
+      "strike": 6525,
+      "type": "PUT",
+      "entry": 3.8,
+      "exit": 51.5,
+      "qty": 1,
+      "profit": 4770.0
+    },
+    {
+      "id": 105,
+      "date": "2026-03-20",
+      "strike": 6510,
+      "type": "PUT",
+      "entry": 3.6,
+      "exit": 37.2,
+      "qty": 1,
+      "profit": 3360.0
+    }
+  ]
 }
