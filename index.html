@@ -140,17 +140,17 @@
   padding:34px 30px;
   min-height:620px;
   display:grid;
-  grid-template-columns:.9fr 1.1fr;
+  grid-template-columns:1.15fr .85fr;
   gap:22px;
-  align-items:stretch;
+  align-items:center;
 }
 
     .hero-main{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      text-align:right;
-    }
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:right;
+}
 
     .pill{
       display:inline-flex;
@@ -169,7 +169,7 @@
     }
 
     .hero-title{
-  font-size:clamp(38px,5vw,68px);
+  font-size:clamp(36px,4.8vw,64px);
   line-height:1.08;
   font-weight:800;
   margin-bottom:14px;
@@ -232,17 +232,17 @@
     }
 
     .hero-side{
-      display:grid;
-      gap:14px;
-      align-content:start;
-    }
+  display:grid;
+  gap:14px;
+  align-content:start;
+}
 
     .side-box{
-      padding:20px 18px;
-      border-radius:24px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.06);
-    }
+  padding:20px 18px;
+  border-radius:24px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+}
 
     .side-box h3{
       font-size:22px;
@@ -257,22 +257,22 @@
     }
 
     .mini-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
-    }
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
 
     .mini{
-      padding:18px 14px;
-      min-height:126px;
-      border-radius:22px;
-      background:rgba(255,255,255,.025);
-      border:1px solid rgba(255,255,255,.06);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      text-align:center;
-    }
+  padding:18px 14px;
+  min-height:145px;
+  border-radius:22px;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+}
 
     .mini .label{
       color:#d0d7e5;
@@ -538,20 +538,22 @@
       .links-grid,
       .results-grid,
       .mini-grid{
-        grid-template-columns:1fr;
-      }
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
 
       .hero{
   padding:34px 30px;
   min-height:620px;
   display:grid;
-  grid-template-columns:.9fr 1.1fr;
+  grid-template-columns:1.15fr .85fr;
   gap:22px;
-  align-items:stretch;
+  align-items:center;
 }
 
       .hero-title{
-  font-size:clamp(38px,5vw,68px);
+  font-size:clamp(36px,4.8vw,64px);
   line-height:1.08;
   font-weight:800;
   margin-bottom:14px;
@@ -588,7 +590,19 @@
 
       .result-value{font-size:36px}
     }
-  </style>
+  
+@media (max-width: 780px){
+  .hero{
+    min-height:auto;
+    padding:26px 18px;
+    grid-template-columns:1fr !important;
+  }
+
+  .hero-title{font-size:34px}
+  .hero-actions{flex-direction:column}
+}
+
+</style>
 </head>
 <body>
   <header class="topbar">
@@ -611,27 +625,25 @@
   </header>
 
   <main>
+    
     <section class="section">
       <div class="container card hero">
         <div class="hero-main">
           <div class="pill">SwiftFlow | SPX Options</div>
 
           <h1 class="hero-title">
-  منظومة احترافية لمتابعة <span class="gold">SPX Options</span> بوضوح أعلى وتنظيم أدق
-</h1>
+            منظومة احترافية لمتابعة <span class="gold">SPX Options</span> بوضوح أعلى وتنظيم أدق
+          </h1>
 
           <p class="hero-text">
-  نتائج محدثة، تقارير منظمة، دخول مباشر عبر البوت، وتجربة مصممة لتختصر التشتت
-  وتسهّل الوصول إلى الخدمة بشكل أسرع وأوضح.
-</p>
+            نتائج محدثة، تقارير منظمة، دخول مباشر عبر البوت، وتجربة مصممة لتختصر التشتت
+            وتسهّل الوصول إلى الخدمة بشكل أسرع وأوضح.
+          </p>
 
           <div class="hero-points">
-  <div>• نتائج يومية وأسبوعية وشهرية بصورة أوضح</div>
-  <div>• دخول مباشر ومنظم عبر البوت</div>
-  <div>• تجربة تقلل التشتت وتسرّع الوصول</div>
-</div>
-            <div>• تجربة منظمة تقلل التشتت وتسهّل اتخاذ القرار</div>
-            <div>• انتقال مباشر إلى البوت ثم إلى القناة الخاصة</div>
+            <div>• نتائج يومية وأسبوعية وشهرية بصورة أوضح</div>
+            <div>• دخول مباشر ومنظم عبر البوت</div>
+            <div>• تجربة تقلل التشتت وتسرّع الوصول</div>
           </div>
 
           <div class="hero-actions">
@@ -671,6 +683,7 @@
         </div>
       </div>
     </section>
+
 
     <section id="how" class="section">
       <div class="container">
