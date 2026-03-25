@@ -14,7 +14,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    :root{
+.market-ticker-bar{
+  width: 100%;
+  margin: 0;
+  padding: 6px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background: rgba(7,12,28,.88);
+  overflow: hidden;
+}
+
+.market-ticker-bar .tradingview-widget-container{
+  width: 100%;
+}
+  
+  :root{
       --bg:#02050d;
       --card:#0b1220;
       --card2:#0d1728;
@@ -605,6 +619,42 @@
 </style>
 </head>
 <body>
+<div class="market-ticker-bar">
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        {"proName":"NASDAQ:NVDA","title":"NVIDIA"},
+        {"proName":"NASDAQ:AAPL","title":"Apple"},
+        {"proName":"NASDAQ:GOOG","title":"Alphabet"},
+        {"proName":"NASDAQ:MSFT","title":"Microsoft"},
+        {"proName":"NASDAQ:AMZN","title":"Amazon"},
+        {"proName":"NYSE:TSM","title":"TSMC"},
+        {"proName":"TADAWUL:2222","title":"Saudi Aramco"},
+        {"proName":"NASDAQ:AVGO","title":"Broadcom"},
+        {"proName":"NASDAQ:META","title":"Meta"},
+        {"proName":"NYSE:BRK.B","title":"Berkshire"},
+        {"proName":"NYSE:LLY","title":"Eli Lilly"},
+        {"proName":"NASDAQ:TSLA","title":"Tesla"},
+        {"proName":"NYSE:JPM","title":"JPMorgan"},
+        {"proName":"NYSE:V","title":"Visa"},
+        {"proName":"NYSE:WMT","title":"Walmart"},
+        {"proName":"NYSE:ORCL","title":"Oracle"},
+        {"proName":"NASDAQ:COST","title":"Costco"},
+        {"proName":"NASDAQ:NFLX","title":"Netflix"},
+        {"proName":"NYSE:XOM","title":"Exxon Mobil"},
+        {"proName":"NASDAQ:AMD","title":"AMD"}
+      ],
+      "showSymbolLogo": true,
+      "isTransparent": true,
+      "displayMode": "adaptive",
+      "colorTheme": "dark",
+      "locale": "ar"
+    }
+    </script>
+  </div>
+</div>
   <header class="topbar">
     <div class="container nav">
       <div class="brand">
