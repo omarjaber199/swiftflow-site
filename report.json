@@ -1,10 +1,10 @@
 {
-  "published_at": "2026-04-01 04:23 AM",
+  "published_at": "2026-04-02 02:12 AM",
   "daily": {
     "label": "آخر نتيجة منفذة",
-    "date": "2026-03-31",
-    "amount": 6650.0,
-    "trades_count": 3
+    "date": "2026-04-01",
+    "amount": 0.0,
+    "trades_count": 0
   },
   "weekly": {
     "from": "2026-03-30",
