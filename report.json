@@ -7,10 +7,10 @@
     "trades_count": 4
   },
   "weekly": {
-    "from": "2026-04-20",
-    "to": "2026-04-26",
-    "amount": 17490.0,
-    "trades_count": 13
+    "from": "2026-04-27",
+    "to": "2026-05-03",
+    "amount": 40.0,
+    "trades_count": 4
   },
   "monthly": {
     "month": "2026-04",
